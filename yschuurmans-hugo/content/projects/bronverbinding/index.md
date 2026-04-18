@@ -2,7 +2,7 @@
 title: "Bronverbinding"
 displayDate: "Q2 2017"
 shortContent: "Bronverbinding is a company which organises group meetings to improve an individual's energetic and self-consciousness levels through spiritual means."
-priority: 7
+priority: 5
 shown: true
 headerImg: "visual2.png"
 visuals:

@@ -2,7 +2,7 @@
 title: "Predicting Potential Drug Lab Locations"
 displayDate: "Q3 2018"
 shortContent: "For a proftask project we were instructed by the province of Noord-Brabant to attempt to predict possible drug lab locations by creating a machine learning model."
-priority: 0
+priority: 8
 shown: true
 headerImg: "drug-lab-visual-1.png"
 visuals:

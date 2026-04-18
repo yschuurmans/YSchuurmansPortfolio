@@ -2,7 +2,7 @@
 title: "Clone runner"
 displayDate: "Q4 2016"
 shortContent: "My first ever product aimed at more than just self-improvement, Clone Runner was nothing close to a hit, but it learned me the many sides of user interaction."
-priority: 9
+priority: 2
 shown: true
 headerImg: "Logo-CloneRunner.png"
 visuals:

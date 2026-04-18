@@ -2,7 +2,7 @@
 title: "Alfam"
 displayDate: "Q3 2020 - Now"
 shortContent: "Alfam is a daughter company of ABN AMRO which manages most of the credits of ABN. My role as a Junior Consultant is to advice Alfam on how to improve their ecosystem and help develop the chosen implementation."
-priority: 0
+priority: 9
 shown: true
 headerImg: "alfam-header.png"
 visuals:

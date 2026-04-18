@@ -2,7 +2,7 @@
 title: "DIM @ BlewScreen"
 displayDate: "Q4 2017"
 shortContent: "DIM is the name of a project with two games. Both of these games try to motivate kids to learn through movement, by presenting a game where the players have to make a certain gesture to complete challenges."
-priority: 6
+priority: 7
 shown: true
 headerImg: "dimlogo.jpg"
 visuals: 

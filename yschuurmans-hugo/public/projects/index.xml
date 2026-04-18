@@ -51,10 +51,10 @@
     </item>
     <item>
       <title>Portfolio Website</title>
-      <link>http://localhost:1313/projects/portfolio-website/</link>
+      <link>http://localhost:1313/projects/first-portfolio-website/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/projects/portfolio-website/</guid>
-      <description>&lt;p&gt;This whole website is written from scratch using ASP.NET MVC, a C# web framework which enables C# developers to create websites using the MVC code pattern. The most important thing about a portfolio website to me is the ability to edit the content on the portfolio without having to dig into the code and edit the pages, so I built a custom Content Management System (CMS) to edit all of the pages you see on this website.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/projects/first-portfolio-website/</guid>
+      <description>&lt;p&gt;A whole website is written from scratch using ASP.NET MVC, a C# web framework which enables C# developers to create websites using the MVC code pattern. The most important thing about a portfolio website to me is the ability to edit the content on the portfolio without having to dig into the code and edit the pages, so I built a custom Content Management System (CMS) to edit all of the pages you see on this website.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Predicting Potential Drug Lab Locations</title>

@@ -2,7 +2,7 @@
 title: "Myo God Game"
 displayDate: "Q2 2017"
 shortContent: "With a school-organized game jam, we decided to try to make something fun with the motion and muscle capturing Myo bracelet."
-priority: 3
+priority: 6
 shown: true
 headerImg: "myo.jpg"
 visuals:

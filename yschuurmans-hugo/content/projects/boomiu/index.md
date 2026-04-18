@@ -2,7 +2,7 @@
 title: "Boomiu"
 displayDate: "Q1 2017"
 shortContent: "Boomiu is a quick party game for 3 or more players which merges the pressure created in stressful co-op games with the fun to be had in party games!"
-priority: 5
+priority: 3
 shown: true
 headerImg: "boomiu-header.jpg"
 visuals:

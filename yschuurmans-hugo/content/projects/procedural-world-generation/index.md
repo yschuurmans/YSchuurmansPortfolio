@@ -2,7 +2,7 @@
 title: "Procedural World Generation"
 displayDate: "Q1-2 2017"
 shortContent: "For personal interest, I looked into how a heightmap could be generated using different kinds of noise maps. Using this I tried to create relatively believable worlds."
-priority: 8
+priority: 4
 shown: true
 headerImg: 'header.png'
 visuals:

@@ -2,6 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/</loc>
+  </url><url>
     <loc>http://localhost:1313/projects/alfam/</loc>
   </url><url>
     <loc>http://localhost:1313/projects/boomiu/</loc>
@@ -10,13 +12,11 @@
   </url><url>
     <loc>http://localhost:1313/projects/clone-runner/</loc>
   </url><url>
-    <loc>http://localhost:1313/</loc>
-  </url><url>
     <loc>http://localhost:1313/projects/dim-at-blewscreen/</loc>
   </url><url>
     <loc>http://localhost:1313/projects/myo-god-game/</loc>
   </url><url>
-    <loc>http://localhost:1313/projects/portfolio-website/</loc>
+    <loc>http://localhost:1313/projects/first-portfolio-website/</loc>
   </url><url>
     <loc>http://localhost:1313/projects/drug-lab-prediction/</loc>
   </url><url>

@@ -12,6 +12,7 @@
 - Used Bootstrap 5 grid (`col-md-6 col-lg-4`) for the project grid instead of CSS-columns masonry — keeps card heights aligned with `h-100` style and matches AC8's responsive breakpoint requirement exactly.
 - Bootstrap 5 carousel + `data-bs-slide-to` thumbnails handle navigation natively; added a tiny vanilla listener in `main.js` (`initProjectCarouselThumbs`) so the thumb `.active` class syncs on slide change.
 - Placeholder images are SVG to keep repo small while still rendering meaningfully.
+- Project content migration now uses the ASP.NET CSV export as the authority for project text, date, priority, and shown state; content bundles have been expanded from the two seeded examples to all original public projects.
 
 ## Files
 - content/projects/_index.md

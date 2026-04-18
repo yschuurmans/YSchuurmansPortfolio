@@ -1,17 +1,27 @@
 ---
 title: "Alfam"
-displayDate: "Q3 2020 - Present"
-shortContent: "Junior Consultant advising the ABN AMRO daughter company on ecosystem improvements and implementation development."
-priority: 100
+displayDate: "Q3 2020 - Now"
+shortContent: "Alfam is a daughter company of ABN AMRO which manages most of the credits of ABN. My role as a Junior Consultant is to advice Alfam on how to improve their ecosystem and help develop the chosen implementation."
+priority: 0
 shown: true
 headerImg: "alfam-header.png"
 visuals:
   - "alfam-visual-1.png"
   - "alfam-visual-2.png"
+  - "alfam-visual-3.png"
 ---
 
-As a Junior Consultant assigned to Alfam — a consumer-credit subsidiary of ABN AMRO — I work alongside their internal engineering teams to modernise long-running .NET back-office systems.
+Within Alfam I work within the team responsible for the client experience, where we focus mainly on the already-onboarded customers. We created and maintain the main portal used by the customers, called MijnDefam. In this portal you are able to manage your loans, change your details, and download several reports.
 
-My day-to-day involves introducing automated testing into legacy code paths, refactoring tightly-coupled modules into smaller services, and helping the team adopt Azure DevOps pipelines for continuous delivery.
+#### My role in this project:
 
-The most rewarding part has been pairing with developers across multiple squads, sharing patterns from other engagements and learning the credit-domain quirks that no textbook covers.
+Consultant/Developer
+
+#### My Responsibilities:
+
+**Implementation and maintaining of the MijnDEFAM portal**
+
+- Integration of IdentityServer within the portal.
+- Monitoring status and uptime of the services supporting the portal.
+- Implementing new requirements based on changes in the law.
+- Implementing changes for assisting customer service.

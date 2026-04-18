@@ -1,21 +1,14 @@
 ---
 title: "Predicting Potential Drug Lab Locations"
 displayDate: "Q3 2018"
-shortContent: "A machine learning initiative commissioned by Noord-Brabant province to forecast illicit laboratory sites."
-priority: 90
+shortContent: "For a proftask project we were instructed by the province of Noord-Brabant to attempt to predict possible drug lab locations by creating a machine learning model."
+priority: 0
 shown: true
 headerImg: "drug-lab-visual-1.png"
 visuals:
   - "drug-lab-visual-1.png"
 ---
 
-Commissioned by the province of Noord-Brabant, this project explored whether geographic, demographic,
-and historical-incident data could be combined to predict where illicit drug laboratories were most
-likely to appear next.
+The Netherlands, and in particular Noord-Brabant has a huge drugs problem. They are supposedly the world-leader in synthetic drugs globally. This motivated the province to think about this problem, and about possible solutions. One of the options that has not been explored previously is data-science. The police, the city's and the province itself has heaps of data lying around.
 
-Working in a small team during my Applied Data Science minor, I helped collect and clean dozens of
-public datasets, engineered features around isolation, road accessibility, and prior incident clusters,
-and trained gradient-boosted classifiers to score every 500×500 m grid cell in the province.
-
-The deliverable was an interactive heatmap and a written report handed to the regional task force;
-the model surfaced several unexpected hotspots that aligned with later real-world findings.
+The Province contacted us to take on this data science challenge and create a model to predict the locations of future drug labs using the heaps of data collected over the years by the government.

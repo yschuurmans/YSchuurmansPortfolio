@@ -6,7 +6,7 @@
 
 **Structure:**
 ```
-[Youri Schuurmans]          [Curriculum Vitae] [Projects]
+[Youri Schuurmans]          [About] [Projects]
 (brand link → /CV)          (right-aligned nav items)
 ```
 

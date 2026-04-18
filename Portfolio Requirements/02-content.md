@@ -6,7 +6,7 @@ All actual text content from the live site at yschuurmans.nl.
 
 ## Navigation
 - Brand/Logo text: **Youri Schuurmans**
-- Nav item 1: **Curriculum Vitae** → `/CV`
+- Nav item 1: **About** → `/CV`
 - Nav item 2: **Projects** → `/Projects`
 
 ---

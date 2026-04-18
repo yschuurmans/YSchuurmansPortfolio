@@ -83,10 +83,12 @@
   </div>
 
   
-    <div id="projectCarousel" class="carousel slide project-carousel cv-card p-0 mb-3"
-         data-bs-ride="carousel">
+    <div id="projectCarousel" class="carousel carousel-fade project-carousel cv-card mb-3">
       <div class="carousel-inner">
         
+          
+          
+          
           <div class="carousel-item active">
             
               
@@ -96,6 +98,9 @@
             
           </div>
         
+          
+          
+          
           <div class="carousel-item">
             
               
@@ -105,15 +110,25 @@
             
           </div>
         
+          
+          
+          
+          <div class="carousel-item">
+            
+              
+              
+                <img src="/projects/alfam/alfam-visual-3.png" class="d-block w-100" alt="Slide 3">
+              
+            
+          </div>
+        
       </div>
       
-        <button class="carousel-control-prev" type="button"
-                data-bs-target="#projectCarousel" data-bs-slide="prev">
+        <button class="carousel-control-prev js-carousel-prev" type="button" aria-label="Previous">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button"
-                data-bs-target="#projectCarousel" data-bs-slide="next">
+        <button class="carousel-control-next js-carousel-next" type="button" aria-label="Next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
@@ -124,12 +139,14 @@
       <div class="project-thumb-strip mb-4">
         
           
+          
+          
+          
             
             
               <button type="button"
                       class="project-thumb active"
-                      data-bs-target="#projectCarousel"
-                      data-bs-slide-to="0"
+                      data-slide-to="0"
                       aria-label="Slide 1">
                 <img src="/projects/alfam/alfam-visual-1.png" alt="Thumbnail 1">
               </button>
@@ -137,14 +154,31 @@
           
         
           
+          
+          
+          
             
             
               <button type="button"
                       class="project-thumb"
-                      data-bs-target="#projectCarousel"
-                      data-bs-slide-to="1"
+                      data-slide-to="1"
                       aria-label="Slide 2">
                 <img src="/projects/alfam/alfam-visual-2.png" alt="Thumbnail 2">
+              </button>
+            
+          
+        
+          
+          
+          
+          
+            
+            
+              <button type="button"
+                      class="project-thumb"
+                      data-slide-to="2"
+                      aria-label="Slide 3">
+                <img src="/projects/alfam/alfam-visual-3.png" alt="Thumbnail 3">
               </button>
             
           
@@ -154,23 +188,42 @@
   
 
   <section class="cv-card project-content">
-    <p class="project-detail-date"><em>Q3 2020 - Present</em></p>
+    <p class="project-detail-date"><em>Q3 2020 - Now</em></p>
     <h2>Alfam</h2>
-    <h4 class="project-detail-short">Junior Consultant advising the ABN AMRO daughter company on ecosystem improvements and implementation development.</h4>
+    <h4 class="project-detail-short">Alfam is a daughter company of ABN AMRO which manages most of the credits of ABN. My role as a Junior Consultant is to advice Alfam on how to improve their ecosystem and help develop the chosen implementation.</h4>
     <div class="project-detail-body">
-      <p>As a Junior Consultant assigned to Alfam — a consumer-credit subsidiary of ABN AMRO — I work alongside their internal engineering teams to modernise long-running .NET back-office systems.</p>
-<p>My day-to-day involves introducing automated testing into legacy code paths, refactoring tightly-coupled modules into smaller services, and helping the team adopt Azure DevOps pipelines for continuous delivery.</p>
-<p>The most rewarding part has been pairing with developers across multiple squads, sharing patterns from other engagements and learning the credit-domain quirks that no textbook covers.</p>
+      <p>Within Alfam I work within the team responsible for the client experience, where we focus mainly on the already-onboarded customers. We created and maintain the main portal used by the customers, called MijnDefam. In this portal you are able to manage your loans, change your details, and download several reports.</p>
+<h4 id="my-role-in-this-project">My role in this project:</h4>
+<p>Consultant/Developer</p>
+<h4 id="my-responsibilities">My Responsibilities:</h4>
+<p><strong>Implementation and maintaining of the MijnDEFAM portal</strong></p>
+<ul>
+<li>Integration of IdentityServer within the portal.</li>
+<li>Monitoring status and uptime of the services supporting the portal.</li>
+<li>Implementing new requirements based on changes in the law.</li>
+<li>Implementing changes for assisting customer service.</li>
+</ul>
 
     </div>
   </section>
+
+  <div class="modal fade" id="carouselLightbox" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered lightbox-dialog">
+      <div class="modal-content lightbox-content">
+        <button type="button" class="btn-close btn-close-white lightbox-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="lightbox-prev" id="lightboxPrev" aria-label="Previous">&#8249;</button>
+        <img id="lightboxImg" src="" alt="" class="lightbox-img">
+        <button type="button" class="lightbox-next" id="lightboxNext" aria-label="Next">&#8250;</button>
+      </div>
+    </div>
+  </div>
 
 </article>
 
   <footer class="text-end pageFooter mt-4">
     <p>
       &copy; 2026 - Youri Schuurmans<br>
-      v 1.2.3
+      v 2.0.1
     </p>
   </footer>
 </div>

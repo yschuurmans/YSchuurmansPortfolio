@@ -86,6 +86,9 @@
     <div id="projectCarousel" class="carousel carousel-fade project-carousel cv-card mb-3">
       <div class="carousel-inner">
         
+          
+          
+          
           <div class="carousel-item active">
             
               
@@ -95,6 +98,9 @@
             
           </div>
         
+          
+          
+          
           <div class="carousel-item">
             
               
@@ -104,6 +110,9 @@
             
           </div>
         
+          
+          
+          
           <div class="carousel-item">
             
               
@@ -113,6 +122,9 @@
             
           </div>
         
+          
+          
+          
           <div class="carousel-item">
             
               
@@ -122,9 +134,13 @@
             
           </div>
         
+          
+          
+            
+          
+          
           <div class="carousel-item">
             
-              
               <div class="project-carousel-video">
                 <iframe id="yt-slide-4"
                         src="https://www.youtube.com/embed/48-Q8izsFT4?rel=0&enablejsapi=1"
@@ -151,6 +167,9 @@
       <div class="project-thumb-strip mb-4">
         
           
+          
+          
+          
             
             
               <button type="button"
@@ -162,6 +181,9 @@
             
           
         
+          
+          
+          
           
             
             
@@ -175,6 +197,9 @@
           
         
           
+          
+          
+          
             
             
               <button type="button"
@@ -186,6 +211,9 @@
             
           
         
+          
+          
+          
           
             
             
@@ -199,7 +227,11 @@
           
         
           
+          
             
+          
+          
+          
             <button type="button"
                     class="project-thumb"
                     data-slide-to="4"
@@ -216,21 +248,41 @@
   <section class="cv-card project-content">
     <p class="project-detail-date"><em>Q1 2017</em></p>
     <h2>Boomiu</h2>
-    <h4 class="project-detail-short">A quick party game for 3 or more players, merging cooperative stress with party gaming entertainment.</h4>
+    <h4 class="project-detail-short">Boomiu is a quick party game for 3 or more players which merges the pressure created in stressful co-op games with the fun to be had in party games!</h4>
     <div class="project-detail-body">
-      <p>Boomiu is a fast-paced party game built for three or more players. The concept centers on shared tension — players cooperate just enough to keep things going, while simultaneously competing to avoid being the one left holding the bomb when time runs out.</p>
-<p>The game was developed as a personal project to explore game design beyond the serious-games context I was working in at the time. I wanted something immediately accessible: no tutorials, no setup friction, playable within seconds of launching.</p>
-<p>Built in Unity, the project gave me hands-on experience designing tight game loops, tuning difficulty through playtesting with real groups, and shipping a polished small-scope product from concept to completion.</p>
+      <p>Boomiu merges the pressure created in stressful co-op games like Space Team with the fun to be had in party games like Mario Party. The goal of Boomiu is to play as many minigames as possible before the time runs out and the bomb explodes. After each minigame you pass the phone to the next player and play the next minigame with that player, then try to survive as long as possible!</p>
+<p><a href="https://play.google.com/store/apps/details?id=com.Boomiu.boomiu">Link to the game on Google Play</a></p>
+<h4 id="my-role-in-this-project">My role in this project:</h4>
+<p>Lead Programmer</p>
+<h4 id="my-responsibilities">My Responsibilities:</h4>
+<p><strong>Main framework for player interaction</strong></p>
+<ul>
+<li>Switching between players</li>
+<li>Switching between minigames</li>
+<li>Weighted randomness for switching between players and minigames, based on what players played what minigames</li>
+<li>Implementation of graphics provided by external artist</li>
+</ul>
 
     </div>
   </section>
+
+  <div class="modal fade" id="carouselLightbox" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered lightbox-dialog">
+      <div class="modal-content lightbox-content">
+        <button type="button" class="btn-close btn-close-white lightbox-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="lightbox-prev" id="lightboxPrev" aria-label="Previous">&#8249;</button>
+        <img id="lightboxImg" src="" alt="" class="lightbox-img">
+        <button type="button" class="lightbox-next" id="lightboxNext" aria-label="Next">&#8250;</button>
+      </div>
+    </div>
+  </div>
 
 </article>
 
   <footer class="text-end pageFooter mt-4">
     <p>
       &copy; 2026 - Youri Schuurmans<br>
-      v 1.2.3
+      v 2.0.1
     </p>
   </footer>
 </div>

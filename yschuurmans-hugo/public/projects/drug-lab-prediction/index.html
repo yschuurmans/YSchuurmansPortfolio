@@ -83,10 +83,12 @@
   </div>
 
   
-    <div id="projectCarousel" class="carousel slide project-carousel cv-card p-0 mb-3"
-         data-bs-ride="carousel">
+    <div id="projectCarousel" class="carousel carousel-fade project-carousel cv-card mb-3">
       <div class="carousel-inner">
         
+          
+          
+          
           <div class="carousel-item active">
             
               
@@ -106,26 +108,31 @@
   <section class="cv-card project-content">
     <p class="project-detail-date"><em>Q3 2018</em></p>
     <h2>Predicting Potential Drug Lab Locations</h2>
-    <h4 class="project-detail-short">A machine learning initiative commissioned by Noord-Brabant province to forecast illicit laboratory sites.</h4>
+    <h4 class="project-detail-short">For a proftask project we were instructed by the province of Noord-Brabant to attempt to predict possible drug lab locations by creating a machine learning model.</h4>
     <div class="project-detail-body">
-      <p>Commissioned by the province of Noord-Brabant, this project explored whether geographic, demographic,
-and historical-incident data could be combined to predict where illicit drug laboratories were most
-likely to appear next.</p>
-<p>Working in a small team during my Applied Data Science minor, I helped collect and clean dozens of
-public datasets, engineered features around isolation, road accessibility, and prior incident clusters,
-and trained gradient-boosted classifiers to score every 500×500 m grid cell in the province.</p>
-<p>The deliverable was an interactive heatmap and a written report handed to the regional task force;
-the model surfaced several unexpected hotspots that aligned with later real-world findings.</p>
+      <p>The Netherlands, and in particular Noord-Brabant has a huge drugs problem. They are supposedly the world-leader in synthetic drugs globally. This motivated the province to think about this problem, and about possible solutions. One of the options that has not been explored previously is data-science. The police, the city&rsquo;s and the province itself has heaps of data lying around.</p>
+<p>The Province contacted us to take on this data science challenge and create a model to predict the locations of future drug labs using the heaps of data collected over the years by the government.</p>
 
     </div>
   </section>
+
+  <div class="modal fade" id="carouselLightbox" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered lightbox-dialog">
+      <div class="modal-content lightbox-content">
+        <button type="button" class="btn-close btn-close-white lightbox-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="lightbox-prev" id="lightboxPrev" aria-label="Previous">&#8249;</button>
+        <img id="lightboxImg" src="" alt="" class="lightbox-img">
+        <button type="button" class="lightbox-next" id="lightboxNext" aria-label="Next">&#8250;</button>
+      </div>
+    </div>
+  </div>
 
 </article>
 
   <footer class="text-end pageFooter mt-4">
     <p>
       &copy; 2026 - Youri Schuurmans<br>
-      v 1.2.3
+      v 2.0.1
     </p>
   </footer>
 </div>

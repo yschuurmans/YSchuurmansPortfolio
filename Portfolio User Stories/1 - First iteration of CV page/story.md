@@ -22,7 +22,7 @@ Recreate the `/cv/` page of yschuurmans.nl as a Hugo static site, pixel-faithful
 ## Acceptance Criteria
 
 - [ ] `hugo server -D` serves the CV at `http://localhost:1313/cv/`
-- [ ] Navbar is fixed-top, background `#ccecff`, "Curriculum Vitae" link is active
+- [ ] Navbar is fixed-top, background `#ccecff`, "About" link is active
 - [ ] "Youri Schuurmans" h1 is centered, color `#0047b3`
 - [ ] Circular profile photo (max 200 px tall) is centered below h1
 - [ ] Left column: 6 experience entries (role h3, company — period h4, description p), right-aligned text

@@ -65,7 +65,7 @@ All structured CV data lives in the front matter. The page body (`.Content`) is 
 
 ```yaml
 ---
-title: "Curriculum Vitae"
+title: "About"
 layout: "single"
 
 params:
@@ -212,7 +212,7 @@ This defines the shared HTML shell: `<head>`, navbar, content slot, and footer.
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li{{ if eq .RelPermalink "/cv/" }} class="active"{{ end }}>
-          <a href="/cv/">Curriculum Vitae</a>
+          <a href="/cv/">About</a>
         </li>
         <li{{ if eq .Section "projects" }} class="active"{{ end }}>
           <a href="/projects/">Projects</a>
@@ -473,7 +473,7 @@ The `now.Year` in `baseof.html` renders the current year dynamically at build ti
 
 ## 12. Verification Checklist
 
-- [ ] Navbar is fixed-top, light blue (`#ccecff`), "Curriculum Vitae" is active/highlighted
+- [ ] Navbar is fixed-top, light blue (`#ccecff`), "About" is active/highlighted
 - [ ] "Youri Schuurmans" h1 is centered, blue (`#0047b3`)
 - [ ] Profile photo is circular, max 200px tall, centered
 - [ ] Left column is right-aligned text

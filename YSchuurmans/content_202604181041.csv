@@ -1,0 +1,138 @@
+"ID","Title","ShortContentBlock","ContentBlock","Category","Priority","Date","Shown"
+6,,,"{""ExperienceText"":""[i]2019-present[/i]\r\n[h3][url=https://www.infosupport.com/][color=#073763]Info Support[/color][/url][/h3][b]Software Engineering Consultant[/b]\r\nMy job at Info Support involves going to customers help solve varying business problems with IT solutions from the initial idea all the way up to the actual implementation and post-release management.\r\n\r\n[i]2019[/i]\r\n[h3][url=https://www.infosupport.com/][color=#073763]Info Support[/color][/url][/h3][b]Intern Software Engineer[/b]\r\nI did my graduation internship at Info Support, where my project was to create a tool to increase awareness of new technologies and advancements in fields Info Support is interested in. \r\n\r\n\r\n[i]2018-2019[/i]\r\n[h3][url=https://www.bookerz.nl/][color=#073763]Bookerz[/color][/url][/h3][b]Backend Developer[/b]\r\nAt Bookerz I am part of a team of developers working on a variety of projects, some of which are for the clients of Bookerz, others intended for internal use.\r\n\r\n\r\n[i]2017-2018[/i]\r\n[h3][url=https://www.blewscreen.com/][color=#073763]Blewscreen[/color][/url][/h3][b]Intern Game Developer[/b]\r\nMy internship at Blewscreen mostly involved continuing work on existing projects, mostly polishing the games to the point that they can be released. I work with a small group of developers and artists mostly to create fun serious games with alternative input methods.\r\n\r\n\r\n[i]2017[/i]\r\n[h3][url=https://yschuurmans.nl/Projects/Get/9][color=#073763]Bronverbinding[/color][/url][/h3][b]Freelance Web Developer[/b]\r\nI was asked to help create a website for clients to register for events hosted by the company, I was responsible for the backend of the web server and worked closely with the front-end developer to get the results the client wanted.\r\n\r\n\r\n[i]2016-2017[/i]\r\n[h3][url=http://www.ddceurope.nl/][color=#073763]DDC Europe[/color][/url][/h3][b]Programmer/General IT Support[/b]\r\nAt DDC Europe my job mostly involves debugging and fixing code broken by the update from PHP 5 to PHP 7, while adjusting it to make it more future proof."",""AboutMeText"":""My name is Youri Schuurmans, my favourite hobby is discovering things about computers, how we make them do what they do. It has always been my ambition to create things for people to use and enjoy, and programming turned out to be my preferred tool for the job."",""EducationText"":""[i]2015-2019[/i]\r\n[h3]HBO-ICT[/h3][b]Fontys Hogescholen[/b]\r\nSoftware Engineering\r\n\r\n\r\n[i]2008-2015[/i]\r\n[h3]HAVO[/h3][b]Titus Brandsma Lyceum[/b]\r\nProfiel Natuur/Techniek"",""SkillKeyValuesJson"":""{\r\n  \""C#\"": 90,\r\n  \""Python\"": 75,\r\n  \""Unity\"": 70,\r\n  \"".NET ASP\"": 80,\r\n  \""Java\"": 80,\r\n  \""PHP\"": 40,\r\n  \""JS\"": 50\r\n}"",""SkillKeyValues"":{""C#"":90,""Python"":75,""Unity"":70,"".NET ASP"":80,""Java"":80,""PHP"":40,""JS"":50}}",CV,0,test123,1
+7,Clone runner,"My first ever product aimed at more than just self-improvement, Clone Runner was nothing close to a hit, but it learned me the many sides of user interaction.","Clonerunner was my first project I aimed to finish from start to end, since this was the first time I got the opportunity to develop something from scratch, without a set goal. This gave me the motivation to work long days and even longer nights to create something I would like to play.
+
+However, the longer I worked on the project, the harder it became to add new content. I started to realise the mistakes I had made, the wrong decisions that would prevent me from adding certain features unless I rewrote that piece of code.
+After many attempts I decided to drop the project, promising myself to try to use what I learned as a stepping stone for better projects
+
+
+[url=https://play.google.com/store/apps/details?id=com.Youri.CloneRunner&hl=nl]Link to the Play Store[/url]",DEFAULT,9,Q4 2016,1
+8,Boomiu,Boomiu is a quick party game for 3 or more players which merges the pressure created in stressful co-op games with the fun to be had in party games!,"Boomiu merges the pressure created in stressful co-op games like Space Team with the fun to be had in party games like Mario Party.
+The goal of Boomiu is to play as many minigames as possible before the time runs out and the bomb explodes. After each minigame you pass the phone to the next player and play the next minigame with that player, then try to survive as long as possible!
+
+[url=https://play.google.com/store/apps/details?id=com.Boomiu.boomiu]Link to the game on Google Play[/url]
+
+
+[h4]My role in this project:[/h4]Lead Programmer
+
+[h4]My Responsibilities:[/h4][b]Main framework for player interaction[/b]
+[*]Switching between players
+[*]Switching between minigames
+[*]Weighted randomness for switching between players and minigames, based on what players played what minigames
+[*]Implementation of graphics provided by external artist",DEFAULT,5,Q1 2017,1
+9,Bronverbinding,Bronverbinding is a company which organises group meetings to improve an individual's energetic and self-consciousness levels through spiritual means.,"Group meetings organized by Angélique Bijlaart and Henk Raaimakers. Both of these well-known with energetic- and consciousness work.
+The objective of the meetings is to become more balanced, to tap into your inner strength, peace, and freedom to experience yourself. Your personal blocks are cleared on a physical, emotional, mental and spiritual level.
+Together with a group, it becomes possible to join forces and create a powerful energetic field, in which your personal fields can be addressed.
+
+The outcome: 1 + 1 = 3 :)
+
+Aware of who you are in alignment with your heart you will connect with everyone in the group and their fields of consciousness.  Together you will unlock what has been locked in the past and create balance with yourself. At Bronverbinding we use techniques varying from Sound Healing to Touch of Matrix and Energetic Therapy. The possibilities are limitless. All you need to do is to open your soul the unlimited possibilities. We like to invite you to go on this journey with us... let us surprise you!
+
+Heart to heart. From Soul to Soul. Heart to heart. From Soul to Soul.
+
+
+[h4]My role in this project:[/h4]Freelance Programmer
+
+[h4]My Responsibilities:[/h4][b]Backend[/b]
+[*]Creating the backend for the website in PHP
+[*]Implementing Twig framework
+[*]Linking the backend and the frontend
+[*]Setting up and connecting the Database
+[*]Setting up the web host and uploading the server files
+[*]Creating and installing SSL certificates",DEFAULT,7,Q2 2017,1
+11,Procedural World Generation,"For personal interest, I looked into how a heightmap could be generated using different kinds of noise maps. Using this I tried to create relatively believable worlds.","I wanted to learn how to generate and apply noise maps(specifically for the use in games) because I always loved the possibility of exploring an infinite world, and one that could be generated the same consistently across different players without having to send over an entire world.
+
+Using this as my main starting point I tried to create a deterministic world generator, that would generate the same world every time, for every player, down to the smallest details(rotations of objects/placements of objects). I wanted to be able to apply one of these techniques in a later project to be able to keep the amount of data that has to be transferred as low as possible without having to compromise in gameplay. 
+
+While this is not a real project in any way, it is the base of a project I have in mind(which may or may not be revealed later). ",DEFAULT,8,Q1-2 2017,1
+12,Myo God Game,"With a School organized game-jam, we decided to try to make something fun with the motion and muscle capturing Myo bracelet.","The Myo bracelet is a device you can use to control your computer and other devices using motion and finger gestures. It records muscle activity through sensors across the arm to detect when certain muscles are under tension. Using this information the bracelet can determine how your fingers are positioned relative to your arm or figure out which finger gesture you are making.
+
+We used the Myo bracelet as the main controller in a game jam game we made as a group. The game jam was hosted by our school and the given theme was 'New Tech'. The school gathered all of the available tools and technologies for the students to choose from, that way you could choose one or more technologies to use in your project.
+
+We chose the Myo bracelet along with the Oculus Rift to create a game in which you played a god-like creature, defending yourself against minions attacking you from all sides. To do this you had a whole range of abilities to use to defend you varying from a wind tunnel to blow enemies away to a hand cannon to blow up everything in sight. The point we were trying to achieve was to make the player feel indestructible and powerful. We achieved this by making the waves of enemies larger and larger, but because of the fact that all of your abilities are area based, you could still finish every last one of the enemies without too much trouble.",DEFAULT,3,Q2 2017,1
+13,Portfolio Website,Once my skill in development had improved beyond the point where I could be proud of my products I wanted a page to show them. What better way to display my abilities than to write that page from scratch?,"This whole website is written from scratch using ASP.NET MVC, a C# web framework which enables C# developers to create websites using the MVC code pattern. The most important thing about a portfolio website to me is the ability to edit the content on the portfolio without having to dig into the code and edit the pages, so I build a custom Content Management System(CMS) to edit all of the pages you see on this website. 
+
+The website currently supports Youtube Videos, GfyCat links, Imgur links and allows you to upload images from your computer. For saving all of this data I use a MySQL server and a custom-made MySQL library I made for easier access to the database. 
+For example, this is a example of inserting a new Account into the database using the default MySQL data connector:
+
+[code]public static bool InsertAccount(Account toInsertAccount)
+{
+   try
+   {
+      string sql = ""INSERT INTO ACCOUNT(USERNAME, PASSWORD, SALT) VALUES(:username, :password, :salt))"";
+      using (MySqlConnection conn = Data.Connection())
+      {
+         using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+         {
+            cmd.Parameters.Add(new MySqlParameter(""username"", toInsertAccount.Username));
+            cmd.Parameters.Add(new MySqlParameter(""password"", toInsertAccount.Password));
+            cmd.Parameters.Add(new MySqlParameter(""salt"", toInsertAccount.Salt));
+            cmd.ExecuteNonQuery();
+         }
+      }
+      return true;
+   }
+   catch (MySqlException  e)
+   {
+      Console.WriteLine(e);
+      Console.WriteLine(e.Message);
+      return false;
+   }
+}
+[/code]
+And this is the same code using my custom library:
+
+[code]var parameters = new Dictionary<string, object>()
+{
+   {""username"", toInsertAccount.Username},
+   {""password"", toInsertAccount.Password},
+   {""salt"", toInsertAccount.Salt}
+};
+return DB.MainDB.InsertQuery(""INSERT INTO ACCOUNT(USERNAME, PASSWORD, SALT) VALUES (?, ?, ?)"", parameters);
+[/code]
+
+Github Repository:
+[url=https://github.com/yschuurmans/YSchuurmansPortfolio/]https://github.com/yschuurmans/YSchuurmansPortfolio/[/url]",DEFAULT,4,Since Q2 2016,1
+14,DIM @ BlewScreen,"DIM is the name of a project with two games. Both of these games try to motivate kids to Learn through movement, by presenting a game where the players have to make a certain gesture to complete challenges.","DIM is the name of the project, and contains the two games: DIM Energizer and DIM 
+DIM is dus een verzamelterm voor 2 games onder hetzelfde project, namelijk DIM Energizer en DIM Move Your Brain.
+
+Move Your Brain is a math game where kids in a classroom have to perform a certain gesture together to reveal a math question, and then answering this math question by performing another gesture that matches the gesture with the correct answer on the board. This way the class is constantly in motion, from the moment the game starts until the moment the game is over.
+[img]https://i.imgur.com/RgBK2wN.jpg[/img]
+ 
+The Energizer is more of a typical game than Move Your Brain. In the Energizer the class all plays a shared character, which they have to move forward by collaborating and all making the correct gesture. If the class succeeds the 'Blob' will move forward, Every meter forward is another point on the high score, so classes get motivated to compete to other classes of the same school.
+[img]https://i.imgur.com/LXqXHeO.jpg[/img]
+
+Project Description on website BlewScreen
+[url=https://www.blewscreen.com/portfolio-item/dim-energie-in-de-klas/]https://www.blewscreen.com/portfolio-item/dim-energie-in-de-klas/[/url]",DEFAULT,6,Q4 2017,1
+15,Machine Learning,"After being interested for a while I decided I wanted to create something utilising machine learning, mostly just because it seems very interesting to me how computers can learn in the same way that humans can.","Machine learning(ML) has been something that peaked my interest from the beginning, but it always seemed so hard to achieve a decent result. Late 2017 this changed because of the rapid growth of the Python library 'TensorFlow', an ML library which enables the programmer to create an ML program without having to create the learning backend itself. This way the programmer only has to create the unique model which explain the python bot what to look for in the data, and what kind of output to create.
+
+
+",DEFAULT,2,"",0
+16,Applied Data Science Minor,"After 3 years of software development I wanted to try something new. Upon discovering the Applied Data Science Minor, my choice became an easy one. ","Since I had always been interested in machine learning and data wrangling, the Applied Data Science Minor appealed to me. After some research it became clear that it consisted of 3 primary subjects. Each subject has a strong reason to be included in the minor, and every single one is important to do research on a dataset.: 
+
+[h4]Getting and Cleaning of Data[/h4]The first step of every Data Science project is to get the data you want to analyse. Often these datasets come from companies, but many datasets can also be acquired from the internet on sites like [url=https://www.kaggle.com/]kaggle[/url]. 
+
+After the dataset has been downloaded it is important to clean the dataset, this means to remove or change rows which might not be useable. An example of this might be in a dataset of student grades, that some grades are written in a 1-10 scale, some might be written in a A-F scale, and others might be based on (Excellent/Good/Sufficient/Insufficient). In this case Cleaning the data means converting every value to the same system, so that accurate data research can be applied over all rows at the same time.
+
+When the data is cleaned and ready, it might be important to add more relevant information. Using the example of student grades, maybe the weather influences the mood of the students, resulting in better or worse grades. When a correlation like this seems plausible it might be interesting to also download this dataset and enrich your dataset with it. Using this combination you might discover correlations which you might not have found without this other dataset.
+
+[h4]Data Visualization and Exploration[/h4]After a dataset has been gathered, cleaned and optionally enriched, your dataset is ready to be used for research. The first step is to 'explore' the dataset by visualizing it, discovering how it looks in the grand scheme of things. The reason this part is so important is because if you don't explore your data, you have no idea where to look for correlations. By visualizing different aspects of your dataset you get a feel for the data, which features might have a relation with which other columns, and which features might need more enrichment before they can be used.
+
+[h4]Machine Learning[/h4]The last step is applying the machine learning algorithms themselves, training an model with the data, and use the model to predict values. While this is the most interesting step of the whole process, its most often the shortest one. This step begins with choosing an algorithm based on the type of input, the type of data in the dataset, and the required type of output. When a algorithm has been chosen it is time to implement it and train it using our data. After the training is done you need to test the quality of the model by comparing predictions against a test set(which is not used in the training), the better it predicts the data in the test set, the better the model is.
+
+From this point you attempt to improve the model by tweaking the parameters or trying another algorithm, and once the accuracy is high enough the model is ready for real use. A finished model can be used to predict future situations in real life. Using the student grades example again, it might be possible to predict a student's grade by their participation rates of that class compared to other classes and grades. Using this information the school might be able to prevent a failing student from failing before it is too late.
+
+ ",DEFAULT,1,Q3 2018,1
+17,Predicting potential drug lab locations,For a proftask project we were instructed by the province of Noord-Brabant to attempt to predict possible drug lab locations by creating a machine learning model.,"The Netherlands, and in particular Noord-Brabant has a huge drugs problem. They are supposedly the world-leader in synthetic drugs globally. This motivated the province to think about this problem, and about possible solutions. One of the options that has not been explored previously is data-science. The police, the city’s and the province itself has heaps of data lying around.
+
+The Province contacted us to take on this data science challenge and create a model to predict the locations of future drug labs using the heaps of data collected over the years by the government.",DEFAULT,0,Q3 2018,1
+18,Alfam,Alfam is a daughter company of ABN AMRO which manages most of the credits of ABN. My role as a Junior Consultant is to advice Alfam on how to improve their ecosystem and help develop the chosen implementation.,"Within Alfam I work within the team responsible for the client experience, where we focus mainly on the already-onboarded customers. We created and maintain the main portal used by the customers, called MijnDefam. In this portal you are able to manage your loans, change your details, and download several reports.
+
+[h4]My role in this project:[/h4]Consultant/Developer
+
+[h4]My Responsibilities:[/h4][b]Implementation and maintaining of the MijnDEFAM portal
+[/b][*] Intergration of IdentityServer within the portal.[b]
+[/b][*] Monitoring status and uptime of the services supporting the portal.
+[*] Implementing new requirements based on changes in the law.
+[*] Implementing changes for assisting customer service.",DEFAULT,0,Q3 2020 - Now,1
+19,AAAA,sss,ssss,DEFAULT,0,NU,0

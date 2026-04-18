@@ -60,7 +60,7 @@ Add full project support to the Hugo site: a Projects grid page listing all proj
 
 ### AC10 — Nav active state
 - On `/projects/` and `/projects/{slug}/`, the "Projects" nav link has the `active` class.
-- On the CV page, "Curriculum Vitae" remains active.
+- On the CV page, "About" remains active.
 
 ---
 

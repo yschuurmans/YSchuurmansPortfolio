@@ -13,7 +13,7 @@
 
 ## Page: CV (`/CV`)
 
-**Title:** `Curriculum Vitae - Youri Schuurmans`
+**Title:** `About - Youri Schuurmans`
 
 **Layout:**
 - Full-width `<h1>` heading (name), centered

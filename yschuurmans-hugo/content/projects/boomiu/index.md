@@ -1,8 +1,8 @@
 ---
 title: "Boomiu"
 displayDate: "Q1 2017"
-shortContent: "A quick party game for 3 or more players, merging cooperative stress with party gaming entertainment."
-priority: 50
+shortContent: "Boomiu is a quick party game for 3 or more players which merges the pressure created in stressful co-op games with the fun to be had in party games!"
+priority: 5
 shown: true
 headerImg: "boomiu-header.jpg"
 visuals:
@@ -13,8 +13,19 @@ visuals:
   - "youtube:48-Q8izsFT4"
 ---
 
-Boomiu is a fast-paced party game built for three or more players. The concept centers on shared tension — players cooperate just enough to keep things going, while simultaneously competing to avoid being the one left holding the bomb when time runs out.
+Boomiu merges the pressure created in stressful co-op games like Space Team with the fun to be had in party games like Mario Party. The goal of Boomiu is to play as many minigames as possible before the time runs out and the bomb explodes. After each minigame you pass the phone to the next player and play the next minigame with that player, then try to survive as long as possible!
 
-The game was developed as a personal project to explore game design beyond the serious-games context I was working in at the time. I wanted something immediately accessible: no tutorials, no setup friction, playable within seconds of launching.
+[Link to the game on Google Play](https://play.google.com/store/apps/details?id=com.Boomiu.boomiu)
 
-Built in Unity, the project gave me hands-on experience designing tight game loops, tuning difficulty through playtesting with real groups, and shipping a polished small-scope product from concept to completion.
+#### My role in this project:
+
+Lead Programmer
+
+#### My Responsibilities:
+
+**Main framework for player interaction**
+
+- Switching between players
+- Switching between minigames
+- Weighted randomness for switching between players and minigames, based on what players played what minigames
+- Implementation of graphics provided by external artist

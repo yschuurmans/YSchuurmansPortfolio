@@ -1,5 +1,5 @@
 ---
-title: "Curriculum Vitae"
+title: "About"
 layout: "single"
 
 params:
@@ -34,32 +34,28 @@ params:
     It has always been my ambition to create things for people to use and enjoy.
 
   education:
-    - degree: "HBO-ICT — Software Engineering"
+    - degree: "HBO-ICT - Software Engineering"
       institution: "Fontys Hogescholen"
       period: "2015–2019"
-    - degree: "HAVO — Natuur/Techniek profile"
+    - degree: "HAVO - Natuur/Techniek profile"
       institution: "Titus Brandsma Lyceum"
       period: "2008–2015"
 
   skills:
-    - name: "C#"
+    - name: "C# / .NET"
       percent: 90
-    - name: ".NET ASP"
-      percent: 80
-    - name: "Java"
+    - name: "AI Agentic Engineering"
+      percent: 90
+    - name: "Microsoft Azure"
       percent: 80
     - name: "Python"
       percent: 75
-    - name: "Unity"
-      percent: 70
     - name: "JavaScript"
       percent: 50
-    - name: "PHP"
-      percent: 40
 
   contact:
     name: "Youri Schuurmans"
-    email: "yourish@live.nl"
+    email: "Youri.Schuurmans@yschuurmans.nl"
     website: "https://www.yschuurmans.nl"
     website_display: "yschuurmans.nl"
     github: "https://github.com/yschuurmans/"

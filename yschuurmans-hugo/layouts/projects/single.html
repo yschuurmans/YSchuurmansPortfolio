@@ -10,26 +10,33 @@
   </div>
 
   {{ with .Params.visuals }}
-    <div id="projectCarousel" class="carousel slide project-carousel cv-card p-0 mb-3"
-         data-bs-ride="carousel">
+    <div id="projectCarousel" class="carousel carousel-fade project-carousel cv-card mb-3">
       <div class="carousel-inner">
-        {{ range $i, $name := . }}
-          {{ $img := $.Resources.GetMatch $name }}
-          {{ if $img }}
-            <div class="carousel-item{{ if eq $i 0 }} active{{ end }}">
-              <img src="{{ $img.RelPermalink }}" class="d-block w-100" alt="Slide {{ add $i 1 }}">
-            </div>
-          {{ end }}
+        {{ range $i, $visual := . }}
+          <div class="carousel-item{{ if eq $i 0 }} active{{ end }}">
+            {{ if strings.HasPrefix $visual "youtube:" }}
+              {{ $videoId := strings.TrimPrefix "youtube:" $visual }}
+              <div class="project-carousel-video">
+                <iframe id="yt-slide-{{ $i }}"
+                        src="https://www.youtube.com/embed/{{ $videoId }}?rel=0&enablejsapi=1"
+                        allowfullscreen
+                        title="YouTube video {{ add $i 1 }}"></iframe>
+              </div>
+            {{ else }}
+              {{ $img := $.Resources.GetMatch $visual }}
+              {{ if $img }}
+                <img src="{{ $img.RelPermalink }}" class="d-block w-100" alt="Slide {{ add $i 1 }}">
+              {{ end }}
+            {{ end }}
+          </div>
         {{ end }}
       </div>
       {{ if gt (len .) 1 }}
-        <button class="carousel-control-prev" type="button"
-                data-bs-target="#projectCarousel" data-bs-slide="prev">
+        <button class="carousel-control-prev js-carousel-prev" type="button" aria-label="Previous">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button"
-                data-bs-target="#projectCarousel" data-bs-slide="next">
+        <button class="carousel-control-next js-carousel-next" type="button" aria-label="Next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
@@ -38,16 +45,26 @@
 
     {{ if gt (len .) 1 }}
       <div class="project-thumb-strip mb-4">
-        {{ range $i, $name := . }}
-          {{ $img := $.Resources.GetMatch $name }}
-          {{ if $img }}
+        {{ range $i, $visual := . }}
+          {{ if strings.HasPrefix $visual "youtube:" }}
+            {{ $videoId := strings.TrimPrefix "youtube:" $visual }}
             <button type="button"
                     class="project-thumb{{ if eq $i 0 }} active{{ end }}"
-                    data-bs-target="#projectCarousel"
-                    data-bs-slide-to="{{ $i }}"
+                    data-slide-to="{{ $i }}"
                     aria-label="Slide {{ add $i 1 }}">
-              <img src="{{ $img.RelPermalink }}" alt="Thumbnail {{ add $i 1 }}">
+              <img src="https://img.youtube.com/vi/{{ $videoId }}/mqdefault.jpg"
+                   alt="Video thumbnail {{ add $i 1 }}">
             </button>
+          {{ else }}
+            {{ $img := $.Resources.GetMatch $visual }}
+            {{ if $img }}
+              <button type="button"
+                      class="project-thumb{{ if eq $i 0 }} active{{ end }}"
+                      data-slide-to="{{ $i }}"
+                      aria-label="Slide {{ add $i 1 }}">
+                <img src="{{ $img.RelPermalink }}" alt="Thumbnail {{ add $i 1 }}">
+              </button>
+            {{ end }}
           {{ end }}
         {{ end }}
       </div>

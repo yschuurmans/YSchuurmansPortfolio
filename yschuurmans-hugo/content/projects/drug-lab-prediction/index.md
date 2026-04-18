@@ -8,7 +8,7 @@ headerImg: "drug-lab-visual-1.png"
 visuals:
   - "drug-lab-visual-1.png"
 ---
-sss
+
 Commissioned by the province of Noord-Brabant, this project explored whether geographic, demographic,
 and historical-incident data could be combined to predict where illicit drug laboratories were most
 likely to appear next.

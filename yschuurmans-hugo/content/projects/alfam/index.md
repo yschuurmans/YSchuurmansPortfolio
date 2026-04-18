@@ -4,11 +4,10 @@ displayDate: "Q3 2020 - Present"
 shortContent: "Junior Consultant advising the ABN AMRO daughter company on ecosystem improvements and implementation development."
 priority: 100
 shown: true
-headerImg: "alfam-header.svg"
+headerImg: "alfam-header.png"
 visuals:
-  - "alfam-header.svg"
-  - "alfam-visual-1.svg"
-  - "alfam-visual-2.svg"
+  - "alfam-visual-1.png"
+  - "alfam-visual-2.png"
 ---
 
 As a Junior Consultant assigned to Alfam — a consumer-credit subsidiary of ABN AMRO — I work alongside their internal engineering teams to modernise long-running .NET back-office systems.

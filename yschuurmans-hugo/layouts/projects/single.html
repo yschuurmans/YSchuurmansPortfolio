@@ -1,0 +1,67 @@
+{{ define "title" }}{{ .Title }} - Youri Schuurmans{{ end }}
+
+{{ define "main" }}
+<article class="project-detail">
+
+  <div class="mb-3">
+    <a href="/projects/" class="project-back-link">
+      <i class="fa fa-angle-left" aria-hidden="true"></i> Back to projects
+    </a>
+  </div>
+
+  {{ with .Params.visuals }}
+    <div id="projectCarousel" class="carousel slide project-carousel cv-card p-0 mb-3"
+         data-bs-ride="carousel">
+      <div class="carousel-inner">
+        {{ range $i, $name := . }}
+          {{ $img := $.Resources.GetMatch $name }}
+          {{ if $img }}
+            <div class="carousel-item{{ if eq $i 0 }} active{{ end }}">
+              <img src="{{ $img.RelPermalink }}" class="d-block w-100" alt="Slide {{ add $i 1 }}">
+            </div>
+          {{ end }}
+        {{ end }}
+      </div>
+      {{ if gt (len .) 1 }}
+        <button class="carousel-control-prev" type="button"
+                data-bs-target="#projectCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button"
+                data-bs-target="#projectCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      {{ end }}
+    </div>
+
+    {{ if gt (len .) 1 }}
+      <div class="project-thumb-strip mb-4">
+        {{ range $i, $name := . }}
+          {{ $img := $.Resources.GetMatch $name }}
+          {{ if $img }}
+            <button type="button"
+                    class="project-thumb{{ if eq $i 0 }} active{{ end }}"
+                    data-bs-target="#projectCarousel"
+                    data-bs-slide-to="{{ $i }}"
+                    aria-label="Slide {{ add $i 1 }}">
+              <img src="{{ $img.RelPermalink }}" alt="Thumbnail {{ add $i 1 }}">
+            </button>
+          {{ end }}
+        {{ end }}
+      </div>
+    {{ end }}
+  {{ end }}
+
+  <section class="cv-card project-content">
+    <p class="project-detail-date"><em>{{ .Params.displayDate }}</em></p>
+    <h2>{{ .Title }}</h2>
+    <h4 class="project-detail-short">{{ .Params.shortContent }}</h4>
+    <div class="project-detail-body">
+      {{ .Content }}
+    </div>
+  </section>
+
+</article>
+{{ end }}

@@ -1,0 +1,5 @@
+baseURL = "https://yschuurmans.nl/"
+languageCode = "en-us"
+title = "Youri Schuurmans"
+
+disableKinds = ["taxonomy"]

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Youri Schuurmans</title>
+    <link>http://localhost:1313/projects/</link>
+    <description>Recent content in Projects on Youri Schuurmans</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Alfam</title>
+      <link>http://localhost:1313/projects/alfam/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/alfam/</guid>
+      <description>&lt;p&gt;As a Junior Consultant assigned to Alfam — a consumer-credit subsidiary of ABN AMRO — I work alongside their internal engineering teams to modernise long-running .NET back-office systems.&lt;/p&gt;&#xA;&lt;p&gt;My day-to-day involves introducing automated testing into legacy code paths, refactoring tightly-coupled modules into smaller services, and helping the team adopt Azure DevOps pipelines for continuous delivery.&lt;/p&gt;&#xA;&lt;p&gt;The most rewarding part has been pairing with developers across multiple squads, sharing patterns from other engagements and learning the credit-domain quirks that no textbook covers.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Predicting Potential Drug Lab Locations</title>
+      <link>http://localhost:1313/projects/drug-lab-prediction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/drug-lab-prediction/</guid>
+      <description>&lt;p&gt;sss&#xA;Commissioned by the province of Noord-Brabant, this project explored whether geographic, demographic,&#xA;and historical-incident data could be combined to predict where illicit drug laboratories were most&#xA;likely to appear next.&lt;/p&gt;&#xA;&lt;p&gt;Working in a small team during my Applied Data Science minor, I helped collect and clean dozens of&#xA;public datasets, engineered features around isolation, road accessibility, and prior incident clusters,&#xA;and trained gradient-boosted classifiers to score every 500×500 m grid cell in the province.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

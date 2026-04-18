@@ -1,0 +1,95 @@
+{{ define "hero" }}
+<header class="cv-hero">
+  <div class="container">
+    <div class="cv-hero-inner">
+      <img src="/images/foto.jpg" class="cv-hero-photo" alt="Youri Schuurmans">
+      <div class="cv-hero-text">
+        <h1>Youri Schuurmans</h1>
+        <p class="cv-hero-tagline">Software Engineering Consultant</p>
+      </div>
+    </div>
+  </div>
+</header>
+{{ end }}
+
+{{ define "main" }}
+<div class="row g-4 cv-grid">
+
+  <div class="col-md-5 col-lg-4">
+
+    <section class="cv-card">
+      <h2>Contact</h2>
+      <ul class="cv-contact-list">
+        <li>{{ .Params.contact.name }}</li>
+        <li>
+          <i class="fa fa-envelope" aria-hidden="true"></i>
+          <a href="mailto:{{ .Params.contact.email }}">{{ .Params.contact.email }}</a>
+        </li>
+        <li>
+          <i class="fa fa-globe" aria-hidden="true"></i>
+          <a href="{{ .Params.contact.website }}">{{ .Params.contact.website_display }}</a>
+        </li>
+        <li>
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <a href="{{ .Params.contact.github }}">{{ .Params.contact.github_display }}</a>
+        </li>
+        <li>
+          <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+          <a href="{{ .Params.contact.linkedin }}">{{ .Params.contact.linkedin_display }}</a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="cv-card">
+      <h2>Skills</h2>
+      {{ range .Params.skills }}
+        <div class="skillbar" data-percent="{{ .percent }}">
+          <div class="skillbar-header">
+            <span class="skillbar-name">{{ .name }}</span>
+            <span class="skillbar-percent">{{ .percent }}%</span>
+          </div>
+          <div class="skillbar-track">
+            <div class="skillbar-fill" style="width: 0%;"></div>
+          </div>
+        </div>
+      {{ end }}
+    </section>
+
+    <section class="cv-card">
+      <h2>About me</h2>
+      <p>{{ .Params.about }}</p>
+    </section>
+
+  </div>
+
+  <div class="col-md-7 col-lg-8">
+
+    <section class="cv-card">
+      <h2>Experience</h2>
+      <div class="cv-timeline">
+        {{ range .Params.experience }}
+          <article class="cv-timeline-item">
+            <h3>{{ .role }}</h3>
+            <h4>{{ .company }} &mdash; <span class="cv-period">{{ .period }}</span></h4>
+            <p>{{ .description }}</p>
+          </article>
+        {{ end }}
+      </div>
+    </section>
+
+    <section class="cv-card">
+      <h2>Education</h2>
+      <div class="cv-timeline">
+        {{ range .Params.education }}
+          <article class="cv-timeline-item">
+            <h3>{{ .degree }}</h3>
+            <h4>{{ .institution }} &mdash; <span class="cv-period">{{ .period }}</span></h4>
+          </article>
+        {{ end }}
+      </div>
+    </section>
+
+  </div>
+
+</div>
+{{ end }}

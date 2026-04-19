@@ -79,6 +79,8 @@ docker compose up -d --build prod
 
 Do not automate anything until this manual deployment succeeds.
 
+By default, the production container is exposed on `http://localhost:28080` so IIS can keep ownership of ports 80 and 443 and reverse proxy to the container.
+
 ## Script Files
 
 This repository includes three Windows deployment scripts:
@@ -189,3 +191,4 @@ That script:
 3. Polling every 5 minutes is a good default.
 4. This flow intentionally allows downtime during rebuild and restart.
 5. IIS does not need any extra deployment endpoint for this approach.
+6. The production container should stay behind IIS on host port 28080 rather than binding directly to port 80.

@@ -11,4 +11,4 @@ services:
   prod:
     build: .
     ports:
-      - "80:80"
+      - "28080:80"

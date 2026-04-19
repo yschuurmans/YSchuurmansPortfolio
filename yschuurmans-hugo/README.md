@@ -23,7 +23,7 @@ Open [http://localhost:1313/](http://localhost:1313/). The project directory is 
 docker compose up prod
 ```
 
-This builds the multi-stage Dockerfile (Hugo extended → nginx:alpine) and serves the minified site at [http://localhost:80](http://localhost:80).
+This builds the multi-stage Dockerfile (Hugo extended → nginx:alpine) and serves the minified site at [http://localhost:28080](http://localhost:28080).
 
 To produce just the static `public/` bundle for deployment to Cloudflare Pages / Netlify:
 
@@ -44,7 +44,7 @@ docker build -t yschuurmans-hugo:latest .
 Run it on a server (replace `80` with your preferred port):
 
 ```bash
-docker run -d --restart unless-stopped -p 80:80 yschuurmans-hugo:latest
+docker run -d --restart unless-stopped -p 28080:80 yschuurmans-hugo:latest
 ```
 
 Or with Docker Compose on the server:
@@ -53,7 +53,7 @@ Or with Docker Compose on the server:
 docker compose up -d prod
 ```
 
-The container serves the pre-built static site via nginx on port 80. No Hugo runtime is included in the final image — only the compiled output and nginx.
+The container serves the pre-built static site via nginx on container port 80 and is exposed on host port 28080 by default. No Hugo runtime is included in the final image — only the compiled output and nginx.
 
 ## Windows polling deployment
 
@@ -63,13 +63,13 @@ Starter automation scripts are provided in `deployment/windows/`.
 
 ### Behind a reverse proxy (recommended)
 
-If you run nginx or Caddy in front of this container, expose it on a non-standard port and proxy to it:
+If you run IIS, nginx, or Caddy in front of this container, proxy to the container on host port 28080:
 
 ```bash
-docker run -d --restart unless-stopped -p 8080:80 yschuurmans-hugo:latest
+docker run -d --restart unless-stopped -p 28080:80 yschuurmans-hugo:latest
 ```
 
-Then proxy `yschuurmans.nl` → `localhost:8080` in your reverse proxy config.
+Then proxy `yschuurmans.nl` → `localhost:28080` in your reverse proxy config.
 
 ## Project structure
 

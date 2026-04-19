@@ -26,7 +26,32 @@
             {{ end }}
           {{ end }}
           {{ $isLocalVideo := or (strings.HasSuffix $visual ".mp4") (strings.HasSuffix $visual ".webm") (strings.HasSuffix $visual ".ogg") }}
-          <div class="carousel-item{{ if eq $i 0 }} active{{ end }}">
+          {{ $resource := $.Resources.GetMatch $visual }}
+          {{ $lightboxType := "" }}
+          {{ $lightboxSrc := "" }}
+          {{ $lightboxMime := "" }}
+          {{ $lightboxTitle := printf "Slide %d" (add $i 1) }}
+          {{ if $videoId }}
+            {{ $lightboxType = "youtube" }}
+            {{ $lightboxSrc = printf "https://www.youtube.com/embed/%s?rel=0" $videoId }}
+            {{ $lightboxTitle = printf "YouTube video %d" (add $i 1) }}
+          {{ else if and $isLocalVideo $resource }}
+            {{ $lightboxType = "video" }}
+            {{ $lightboxSrc = $resource.RelPermalink }}
+            {{ $lightboxMime = "video/mp4" }}
+            {{ if strings.HasSuffix $visual ".webm" }}{{ $lightboxMime = "video/webm" }}{{ end }}
+            {{ if strings.HasSuffix $visual ".ogg" }}{{ $lightboxMime = "video/ogg" }}{{ end }}
+            {{ $lightboxTitle = printf "Video %d" (add $i 1) }}
+          {{ else if $resource }}
+            {{ $lightboxType = "image" }}
+            {{ $lightboxSrc = $resource.RelPermalink }}
+          {{ end }}
+          <div class="carousel-item{{ if eq $i 0 }} active{{ end }}"
+               data-lightbox-index="{{ $i }}"
+               data-lightbox-type="{{ $lightboxType }}"
+               data-lightbox-src="{{ $lightboxSrc }}"
+               data-lightbox-title="{{ $lightboxTitle }}"
+               {{ with $lightboxMime }}data-lightbox-mime="{{ . }}"{{ end }}>
             {{ if $videoId }}
               <div class="project-carousel-video">
                 <iframe id="yt-slide-{{ $i }}"
@@ -35,21 +60,16 @@
                         title="YouTube video {{ add $i 1 }}"></iframe>
               </div>
             {{ else if $isLocalVideo }}
-              {{ $vid := $.Resources.GetMatch $visual }}
-              {{ if $vid }}
-                {{ $mime := "video/mp4" }}
-                {{ if strings.HasSuffix $visual ".webm" }}{{ $mime = "video/webm" }}{{ end }}
-                {{ if strings.HasSuffix $visual ".ogg" }}{{ $mime = "video/ogg" }}{{ end }}
+              {{ if $resource }}
                 <div class="project-carousel-video">
                   <video class="js-local-video" controls preload="metadata" playsinline>
-                    <source src="{{ $vid.RelPermalink }}" type="{{ $mime }}">
+                    <source src="{{ $resource.RelPermalink }}" type="{{ $lightboxMime }}">
                   </video>
                 </div>
               {{ end }}
             {{ else }}
-              {{ $img := $.Resources.GetMatch $visual }}
-              {{ if $img }}
-                <img src="{{ $img.RelPermalink }}" class="d-block w-100" alt="Slide {{ add $i 1 }}">
+              {{ if $resource }}
+                <img src="{{ $resource.RelPermalink }}" class="d-block w-100" alt="Slide {{ add $i 1 }}">
               {{ end }}
             {{ end }}
           </div>
@@ -130,7 +150,19 @@
       <div class="modal-content lightbox-content">
         <button type="button" class="btn-close btn-close-white lightbox-close" data-bs-dismiss="modal" aria-label="Close"></button>
         <button type="button" class="lightbox-prev" id="lightboxPrev" aria-label="Previous">&#8249;</button>
-        <img id="lightboxImg" src="" alt="" class="lightbox-img">
+        <div class="lightbox-stage" id="lightboxStage">
+          <img id="lightboxImg" src="" alt="" class="lightbox-img" hidden>
+          <div class="lightbox-embed" id="lightboxEmbed" hidden>
+            <iframe id="lightboxIframe"
+                    class="lightbox-iframe"
+                    src="about:blank"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                    title=""></iframe>
+          </div>
+          <video id="lightboxVideo" class="lightbox-video" controls preload="metadata" playsinline hidden></video>
+        </div>
         <button type="button" class="lightbox-next" id="lightboxNext" aria-label="Next">&#8250;</button>
       </div>
     </div>

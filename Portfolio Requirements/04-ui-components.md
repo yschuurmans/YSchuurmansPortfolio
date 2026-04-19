@@ -217,11 +217,4 @@ Code blocks: Google Code Prettify via CDN (`run_prettify.js`)
 
 ## 12. Cookie Consent Banner
 
-**Library:** cookieconsent2 v3.0.3 (from cdnjs.cloudflare.com)
-
-**Config:**
-- Position: top, static (pushes content down)
-- Popup background: `#edeff5`, text: `#838391`
-- Button background: `#4b81e8`
-- Message: "This website uses cookies to ensure you get the best experience on our website. By continuing to browse the site you are agreeing to our use of cookies."
-- Dismiss button: "Dismiss"
+No cookie consent banner is included in the current Hugo site.

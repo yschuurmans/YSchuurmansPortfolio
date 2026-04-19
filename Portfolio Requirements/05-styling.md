@@ -225,6 +225,4 @@ Used for images embedded in project descriptions.
 2. `Site.css` (custom overrides)
 3. `font-awesome.min.css` (Font Awesome icon font)
 4. `jquery-ui.css` (jQuery UI)
-5. `cookieBar.min.css` (cookie consent local)
-6. Cookie consent CDN CSS (cookieconsent2 v3.0.3)
-7. `camera.css` + `cameraSettingCss.css` (only on project detail pages with visuals)
+5. `camera.css` + `cameraSettingCss.css` (only on project detail pages with visuals)

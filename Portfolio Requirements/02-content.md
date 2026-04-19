@@ -131,7 +131,4 @@ Right-aligned. Year is dynamic (current year).
 ---
 
 ## Cookie Consent Banner
-Static top banner. Text:
-> "This website uses cookies to ensure you get the best experience on our website. By continuing to browse the site you are agreeing to our use of cookies."
-
-Dismiss button text: **Dismiss**
+No cookie consent banner is shown on the current site.

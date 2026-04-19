@@ -108,26 +108,7 @@ jQuery(function () {
 
 ## 5. Cookie Consent Banner
 
-**Library:** cookieconsent2 v3.0.3 from cdnjs.cloudflare.com
-
-```js
-window.addEventListener("load", function () {
-  window.cookieconsent.initialise({
-    palette: {
-      popup: { background: "#edeff5", text: "#838391" },
-      button: { background: "#4b81e8" }
-    },
-    position: "top",
-    static: true,
-    content: {
-      message: "This website uses cookies to ensure you get the best experience on our website. By continuing to browse the site you are agreeing to our use of cookies.",
-      dismiss: "Dismiss"
-    }
-  });
-});
-```
-
-`static: true` pushes content down (not an overlay). `position: "top"`.
+No cookie consent library or banner is loaded in the current Hugo site.
 
 ---
 

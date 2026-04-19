@@ -59,12 +59,14 @@ function Write-BuildMetadata {
 }
 
 function Reset-ProdContainer {
-    $existingContainerId = (& $dockerExe compose @composeOptions ps -a -q $prodServiceName).Trim()
+    $existingContainerId = & $dockerExe compose @composeOptions ps -a -q $prodServiceName | Select-Object -First 1
 
-    if (-not $existingContainerId) {
+    if ([string]::IsNullOrWhiteSpace($existingContainerId)) {
         Write-Log "No existing $prodServiceName container found."
         return
     }
+
+    $existingContainerId = $existingContainerId.Trim()
 
     Write-Log "Stopping and removing existing $prodServiceName container $existingContainerId."
     & $dockerExe compose @composeOptions rm -f -s $prodServiceName | Out-Null

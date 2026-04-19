@@ -11,6 +11,10 @@
   --cv-card-radius: 8px;
 }
 
+@view-transition {
+  navigation: auto;
+}
+
 body {
   font-family: 'Roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding-top: 56px;
@@ -22,6 +26,68 @@ body {
 .body-content {
   padding-left: 15px;
   padding-right: 15px;
+}
+
+.site-shell {
+  min-height: calc(100vh - 56px);
+}
+
+.site-hero-shell {
+  view-transition-name: page-hero;
+}
+
+[data-page-main] {
+  view-transition-name: page-main;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html.js [data-page-main] {
+    transition: opacity 0.2s ease;
+    will-change: opacity;
+  }
+
+  html.js.is-entering [data-page-main],
+  html.js.is-leaving [data-page-main] {
+    opacity: 0;
+  }
+
+  #navbarddiv {
+    view-transition-name: none;
+  }
+
+  ::view-transition-old(page-main) {
+    animation: page-transition-out 0.14s ease both;
+  }
+
+  ::view-transition-new(page-main) {
+    animation: page-transition-in 0.18s ease both;
+  }
+
+  ::view-transition-old(page-hero),
+  ::view-transition-new(page-hero) {
+    animation-duration: 0.18s;
+    animation-timing-function: ease;
+  }
+}
+
+@keyframes page-transition-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes page-transition-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
 }
 
 h1 { color: var(--cv-blue-1); }

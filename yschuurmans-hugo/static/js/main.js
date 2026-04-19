@@ -1,6 +1,80 @@
 (function () {
   'use strict';
 
+  function initPageTransitions() {
+    var root = document.documentElement;
+    var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var supportsViewTransitions = 'startViewTransition' in document ||
+      (window.CSS && typeof window.CSS.supports === 'function' && CSS.supports('view-transition-name: page'));
+
+    function finishEnter() {
+      root.classList.remove('is-leaving');
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          root.classList.remove('is-entering');
+        });
+      });
+    }
+
+    finishEnter();
+
+    window.addEventListener('pageshow', function (event) {
+      root.classList.remove('is-leaving');
+      if (event.persisted) {
+        root.classList.remove('is-entering');
+        return;
+      }
+
+      finishEnter();
+    });
+
+    if (prefersReducedMotion || supportsViewTransitions) {
+      root.classList.remove('is-entering');
+      return;
+    }
+
+    document.addEventListener('click', function (event) {
+      var link;
+      var href;
+      var url;
+
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+        return;
+      }
+
+      link = event.target.closest('a[href]');
+      if (!link || link.target === '_blank' || link.hasAttribute('download')) {
+        return;
+      }
+
+      href = link.getAttribute('href');
+      if (!href || href.charAt(0) === '#' || /^(mailto:|tel:|javascript:)/i.test(href)) {
+        return;
+      }
+
+      try {
+        url = new URL(link.href, window.location.href);
+      } catch (error) {
+        return;
+      }
+
+      if (url.origin !== window.location.origin) {
+        return;
+      }
+
+      if (url.pathname === window.location.pathname && url.search === window.location.search && url.hash) {
+        return;
+      }
+
+      event.preventDefault();
+      root.classList.add('is-leaving');
+
+      window.setTimeout(function () {
+        window.location.href = url.href;
+      }, 120);
+    });
+  }
+
   function animateSkillBars() {
     var bars = document.querySelectorAll('.skillbar');
     if (!bars.length) return;
@@ -154,12 +228,14 @@
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {
+      initPageTransitions();
       animateSkillBars();
       initProjectHover();
       initProjectCarousel();
       initLightbox();
     });
   } else {
+    initPageTransitions();
     animateSkillBars();
     initProjectHover();
     initProjectCarousel();

@@ -24,6 +24,20 @@
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#003d99">
 
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var supportsViewTransitions = 'startViewTransition' in document ||
+        (window.CSS && typeof window.CSS.supports === 'function' && CSS.supports('view-transition-name: page-shell'));
+
+      root.classList.add('js');
+      if (!prefersReducedMotion && !supportsViewTransitions) {
+        root.classList.add('is-entering');
+      }
+    })();
+  </script>
+
   {{ block "head" . }}{{ end }}
 </head>
 <body>
@@ -48,17 +62,21 @@
     </div>
   </div>
 </nav>
- 
-{{ block "hero" . }}{{ end }}
 
-<div class="container body-content">
-  {{ block "main" . }}{{ end }}
-  <footer class="text-end pageFooter mt-4">
-    <p>
-      &copy; {{ now.Year }} - Youri Schuurmans<br>
-      {{ with site.Data.build.version }}v {{ . }}{{ with site.Data.build.date }} ({{ . }}){{ end }}{{ else }}v dev{{ end }}
-    </p>
-  </footer>
+<div class="site-shell">
+  <div class="site-hero-shell" data-page-hero>
+    {{ block "hero" . }}{{ end }}
+  </div>
+
+  <main class="container body-content" data-page-main>
+    {{ block "main" . }}{{ end }}
+    <footer class="text-end pageFooter mt-4">
+      <p>
+        &copy; {{ now.Year }} - Youri Schuurmans<br>
+        {{ with site.Data.build.version }}v {{ . }}{{ with site.Data.build.date }} ({{ . }}){{ end }}{{ else }}v dev{{ end }}
+      </p>
+    </footer>
+  </main>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

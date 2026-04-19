@@ -55,6 +55,12 @@ docker compose up -d prod
 
 The container serves the pre-built static site via nginx on port 80. No Hugo runtime is included in the final image — only the compiled output and nginx.
 
+## Windows polling deployment
+
+For a Windows-native server setup that polls GitHub for updates and redeploys with PowerShell and Docker, see [ServerSetup.md](ServerSetup.md).
+
+Starter automation scripts are provided in `deployment/windows/`.
+
 ### Behind a reverse proxy (recommended)
 
 If you run nginx or Caddy in front of this container, expose it on a non-standard port and proxy to it:

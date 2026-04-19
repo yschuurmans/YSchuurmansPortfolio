@@ -34,11 +34,47 @@
     if (collapse) collapse.hide();
   }
 
+  function refreshCloudflareEmailProtection() {
+    var protectedEmailSelector = 'a[href*="/cdn-cgi/l/email-protection"], .__cf_email__';
+    var existingRequest = window.__cfEmailDecodePromise;
+
+    if (!document.querySelector(protectedEmailSelector)) {
+      return Promise.resolve();
+    }
+
+    if (existingRequest) {
+      return existingRequest;
+    }
+
+    window.__cfEmailDecodePromise = new Promise(function (resolve) {
+      var script = document.createElement('script');
+      var settled = false;
+
+      function finish() {
+        if (settled) return;
+        settled = true;
+        window.__cfEmailDecodePromise = null;
+        resolve();
+      }
+
+      script.src = '/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js';
+      script.async = true;
+      script.onload = finish;
+      script.onerror = finish;
+
+      document.body.appendChild(script);
+      window.setTimeout(finish, 1500);
+    });
+
+    return window.__cfEmailDecodePromise;
+  }
+
   function enhancePage() {
     animateSkillBars();
     initProjectHover();
     initProjectCarousel();
     initLightbox();
+    refreshCloudflareEmailProtection();
   }
 
   function swapPageContent(nextDocument) {

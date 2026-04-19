@@ -1,0 +1,140 @@
+{{ define "title" }}{{ .Title }} - Youri Schuurmans{{ end }}
+
+{{ define "main" }}
+<article class="project-detail">
+
+  <div class="mb-3">
+    <a href="/projects/" class="project-back-link">
+      <i class="fa fa-angle-left" aria-hidden="true"></i> Back to projects
+    </a>
+  </div>
+
+  {{ with .Params.visuals }}
+    <div id="projectCarousel" class="carousel carousel-fade project-carousel cv-card mb-3">
+      <div class="carousel-inner">
+        {{ range $i, $visual := . }}
+          {{ $videoId := "" }}
+          {{ if strings.HasPrefix $visual "youtube:" }}
+            {{ $videoId = strings.TrimPrefix "youtube:" $visual }}
+          {{ else if strings.HasPrefix $visual "https://youtu.be/" }}
+            {{ $videoId = index (split (strings.TrimPrefix "https://youtu.be/" $visual) "?") 0 }}
+          {{ else if strings.HasPrefix $visual "https://www.youtube.com/watch" }}
+            {{ range split (index (split $visual "?") 1) "&" }}
+              {{ if strings.HasPrefix . "v=" }}
+                {{ $videoId = strings.TrimPrefix "v=" . }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+          {{ $isLocalVideo := or (strings.HasSuffix $visual ".mp4") (strings.HasSuffix $visual ".webm") (strings.HasSuffix $visual ".ogg") }}
+          <div class="carousel-item{{ if eq $i 0 }} active{{ end }}">
+            {{ if $videoId }}
+              <div class="project-carousel-video">
+                <iframe id="yt-slide-{{ $i }}"
+                        src="https://www.youtube.com/embed/{{ $videoId }}?rel=0&enablejsapi=1"
+                        allowfullscreen
+                        title="YouTube video {{ add $i 1 }}"></iframe>
+              </div>
+            {{ else if $isLocalVideo }}
+              {{ $vid := $.Resources.GetMatch $visual }}
+              {{ if $vid }}
+                {{ $mime := "video/mp4" }}
+                {{ if strings.HasSuffix $visual ".webm" }}{{ $mime = "video/webm" }}{{ end }}
+                {{ if strings.HasSuffix $visual ".ogg" }}{{ $mime = "video/ogg" }}{{ end }}
+                <div class="project-carousel-video">
+                  <video class="js-local-video" controls preload="metadata" playsinline>
+                    <source src="{{ $vid.RelPermalink }}" type="{{ $mime }}">
+                  </video>
+                </div>
+              {{ end }}
+            {{ else }}
+              {{ $img := $.Resources.GetMatch $visual }}
+              {{ if $img }}
+                <img src="{{ $img.RelPermalink }}" class="d-block w-100" alt="Slide {{ add $i 1 }}">
+              {{ end }}
+            {{ end }}
+          </div>
+        {{ end }}
+      </div>
+      {{ if gt (len .) 1 }}
+        <button class="carousel-control-prev js-carousel-prev" type="button" aria-label="Previous">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next js-carousel-next" type="button" aria-label="Next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      {{ end }}
+    </div>
+
+    {{ if gt (len .) 1 }}
+      <div class="project-thumb-strip mb-4">
+        {{ range $i, $visual := . }}
+          {{ $videoId := "" }}
+          {{ if strings.HasPrefix $visual "youtube:" }}
+            {{ $videoId = strings.TrimPrefix "youtube:" $visual }}
+          {{ else if strings.HasPrefix $visual "https://youtu.be/" }}
+            {{ $videoId = index (split (strings.TrimPrefix "https://youtu.be/" $visual) "?") 0 }}
+          {{ else if strings.HasPrefix $visual "https://www.youtube.com/watch" }}
+            {{ range split (index (split $visual "?") 1) "&" }}
+              {{ if strings.HasPrefix . "v=" }}
+                {{ $videoId = strings.TrimPrefix "v=" . }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+          {{ $isLocalVideo := or (strings.HasSuffix $visual ".mp4") (strings.HasSuffix $visual ".webm") (strings.HasSuffix $visual ".ogg") }}
+          {{ if $videoId }}
+            <button type="button"
+                    class="project-thumb{{ if eq $i 0 }} active{{ end }}"
+                    data-slide-to="{{ $i }}"
+                    aria-label="Slide {{ add $i 1 }}">
+              <img src="https://img.youtube.com/vi/{{ $videoId }}/mqdefault.jpg"
+                   alt="Video thumbnail {{ add $i 1 }}">
+            </button>
+          {{ else if $isLocalVideo }}
+            <button type="button"
+                    class="project-thumb project-thumb-video{{ if eq $i 0 }} active{{ end }}"
+                    data-slide-to="{{ $i }}"
+                    aria-label="Slide {{ add $i 1 }}">
+              <span class="project-thumb-play-icon" aria-hidden="true">
+                <i class="fa fa-play-circle"></i>
+              </span>
+            </button>
+          {{ else }}
+            {{ $img := $.Resources.GetMatch $visual }}
+            {{ if $img }}
+              <button type="button"
+                      class="project-thumb{{ if eq $i 0 }} active{{ end }}"
+                      data-slide-to="{{ $i }}"
+                      aria-label="Slide {{ add $i 1 }}">
+                <img src="{{ $img.RelPermalink }}" alt="Thumbnail {{ add $i 1 }}">
+              </button>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </div>
+    {{ end }}
+  {{ end }}
+
+  <section class="cv-card project-content">
+    <p class="project-detail-date"><em>{{ .Params.displayDate }}</em></p>
+    <h2>{{ .Title }}</h2>
+    <h4 class="project-detail-short">{{ .Params.shortContent }}</h4>
+    <div class="project-detail-body">
+      {{ .Content }}
+    </div>
+  </section>
+
+  <div class="modal fade" id="carouselLightbox" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered lightbox-dialog">
+      <div class="modal-content lightbox-content">
+        <button type="button" class="btn-close btn-close-white lightbox-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="lightbox-prev" id="lightboxPrev" aria-label="Previous">&#8249;</button>
+        <img id="lightboxImg" src="" alt="" class="lightbox-img">
+        <button type="button" class="lightbox-next" id="lightboxNext" aria-label="Next">&#8250;</button>
+      </div>
+    </div>
+  </div>
+
+</article>
+{{ end }}

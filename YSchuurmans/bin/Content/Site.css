@@ -1,0 +1,293 @@
+﻿body {
+    font-family: 'Roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: rgba(235, 247, 255, 1);
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.noLink {
+    text-decoration: none;
+    color: #333;
+}
+
+h1 {
+    color: #0047b3;
+}
+
+h2 {
+    color: #003d99;
+}
+
+h3 {
+    color: #002966;
+}
+
+h4 {
+    color: #001433;
+}
+
+.footerText {
+    font-style: italic;
+    font-size: 1em;
+    margin-bottom: 0px;
+    color: #696969;
+}
+
+.pageFooter{
+    font-size: 0.9em;
+    color: #696969;
+}
+
+/*#region Project Pages*/
+
+.ProjectBlock {
+    background-color: white;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    word-wrap: break-word;
+}
+
+.LGProjectBlock {
+    background-color: white;
+    border-radius: 4px;
+    padding: 0px;
+}
+
+.ZoomBlock {
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+}
+
+.Zoomed {
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+.ProjectImage {
+    position: relative;
+    width: 100%;
+    max-height: 200px;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+    .ProjectImage img {
+        width: 100%;
+        height: auto;
+    }
+
+.ProjectTextBlock {
+    padding: 10px
+}
+
+.ContentImg {
+    max-width: 100%;
+}
+
+/*#endregion*/
+/* #region Navigation Bar*/
+#navbarddiv.navbar-default .navbar-brand {
+    color: rgba(77, 77, 77, 1);
+}
+
+#navbarddiv.navbar-default {
+    font-size: 15px;
+    background-color: rgba(204, 236, 255, 1);
+    border-bottom-width: 1px;
+}
+
+    #navbarddiv.navbar-default .navbar-nav > li > a {
+        color: rgba(79, 79, 79, 1);
+        background-color: rgba(204, 236, 255, 1);
+    }
+
+        #navbarddiv.navbar-default .navbar-nav > li > a:hover,
+        #navbarddiv.navbar-default .navbar-nav > li > a:focus {
+            color: rgba(51, 51, 51, 1);
+            background-color: rgba(222, 242, 255, 1);
+        }
+
+    #navbarddiv.navbar-default .navbar-nav > .active > a,
+    #navbarddiv.navbar-default .navbar-nav > .active > a:hover,
+    #navbarddiv.navbar-default .navbar-nav > .active > a:focus {
+        color: rgba(85, 85, 85, 1);
+        background-color: rgba(240, 249, 255, 1);
+    }
+
+    #navbarddiv.navbar-default .navbar-toggle {
+        border-color: #5ca1d6;
+    }
+
+        #navbarddiv.navbar-default .navbar-toggle:hover,
+        #navbarddiv.navbar-default .navbar-toggle:focus {
+            background-color: #5ca1d6;
+        }
+
+        #navbarddiv.navbar-default .navbar-toggle .icon-bar {
+            background-color: #5ca1d6;
+        }
+
+        #navbarddiv.navbar-default .navbar-toggle:hover .icon-bar,
+        #navbarddiv.navbar-default .navbar-toggle:focus .icon-bar {
+            background-color: #ccecff;
+        }
+/* #endregion */
+
+
+.VisualBlock {
+    border-radius: 4px;
+    border-color: #303030;
+    border-width: 2px;
+    border-style: solid;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+    .VisualBlock img {
+        max-width: 100%;
+        height: 100px;
+    }
+
+.ContentBlock {
+    background-color: #cccccc;
+    padding: 20px;
+    border-radius: 25px;
+}
+
+
+/* #region CV */
+.CVRow > div > div > h1, h2, h3, h4 {
+    margin-top: 0px;
+}
+
+.CVRow > div > div > h3 {
+    margin-bottom: 0px;
+    font-size: 1.6em
+}
+
+.CVRow > div > div > textarea {
+    width: 100%;
+    max-width: 100%;
+    min-height: 200px;
+}
+
+.right-col {
+    border-left: solid 1px #003380;
+}
+
+.mugshot {
+    border-radius: 50%;
+    max-width: 100%;
+    max-height: 200px;
+}
+
+
+
+/* #region skillbars */
+/**/
+.skillbar {
+    font-family: 'Roboto', 'sans-serif';
+    position: relative;
+    display: block;
+    margin-bottom: 15px;
+    width: 100%;
+    background: #eee;
+    height: 35px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -webkit-transition: 0.4s linear;
+    -moz-transition: 0.4s linear;
+    -ms-transition: 0.4s linear;
+    -o-transition: 0.4s linear;
+    transition: 0.4s linear;
+    -webkit-transition-property: width, background-color;
+    -moz-transition-property: width, background-color;
+    -ms-transition-property: width, background-color;
+    -o-transition-property: width, background-color;
+    transition-property: width, background-color;
+}
+
+.skillbar-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-weight: bold;
+    font-size: 13px;
+    color: #fff;
+    background: #6adcfa;
+    -webkit-border-top-left-radius: 3px;
+    -webkit-border-bottom-left-radius: 4px;
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-bottomleft: 3px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+    .skillbar-title span {
+        display: block;
+        background: rgba(0, 0, 0, 0.1);
+        padding: 0 20px;
+        height: 35px;
+        line-height: 35px;
+        -webkit-border-top-left-radius: 3px;
+        -webkit-border-bottom-left-radius: 3px;
+        -moz-border-radius-topleft: 3px;
+        -moz-border-radius-bottomleft: 3px;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+
+.skillbar-bar {
+    height: 35px;
+    width: 0px;
+    background: #6adcfa;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+
+.skill-bar-percent {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    font-size: 11px;
+    height: 35px;
+    line-height: 35px;
+    color: #444;
+    color: rgba(0, 0, 0, 0.4);
+}
+/* #endregion */
+
+
+/* #endregion */
+
+/* #region Navigation Bar*/
+#sortable {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 60%;
+}
+    #sortable li {
+        margin: 0 3px 3px 3px;
+        padding-left: 1.5em;
+        font-size: 1.4em;
+    }
+        #sortable li span {
+            position: absolute;
+            margin-left: -1.3em;
+        }
+
+/* #endregion*/

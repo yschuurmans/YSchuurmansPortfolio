@@ -1,0 +1,193 @@
+﻿@using YouriPortfolio.Models
+@model YouriPortfolio.Models.ViewModels.ProjectViewModel
+@{
+    ViewBag.Title = "ContentEdit";
+}
+<head>
+    <script src="~/Scripts/jquery.wysibb.min.js"></script>
+    <link href="~/Content/wbbtheme.css" rel="stylesheet" />
+</head>
+<script>
+    $(document).ready(function () {
+        var wbbOpt = {
+            buttons: "bold,italic,underline,fontcolor,|,img,link,code,fa,|,h1,h2,h3,h4",
+            allButtons: {
+                h1: {
+                    title: 'Insert h1',
+                    buttonText: 'h1',
+                    hotkey: "ctrl+shift+1", //Add hotkey
+                    transform: {
+                        '<h1>{SELTEXT}</h1>': '[h1]{SELTEXT}[/h1]'
+                    }
+                },
+                h2: {
+                    title: 'Insert h2',
+                    buttonText: 'h2',
+                    hotkey: "ctrl+shift+2", //Add hotkey
+                    transform: {
+                        '<h2>{SELTEXT}</h2>': '[h2]{SELTEXT}[/h2]'
+                    }
+                },
+                h3: {
+                    title: 'Insert h3',
+                    buttonText: 'h3',
+                    hotkey: "ctrl+shift+3", //Add hotkey
+                    transform: {
+                        '<h3>{SELTEXT}</h3>': '[h3]{SELTEXT}[/h3]'
+                    }
+                },
+                h4: {
+                    title: 'Insert h4',
+                    buttonText: 'h4',
+                    hotkey: "ctrl+shift+4", //Add hotkey
+                    transform: {
+                        '<h4>{SELTEXT}</h4>': '[h4]{SELTEXT}[/h4]'
+                    }
+                }
+            }
+        }
+        $("#Project_ContentText").wysibb(wbbOpt);
+        $("#Project_ShortContent").wysibb(wbbOpt);
+    });
+</script>
+
+<script type="text/javascript">
+    $(function () {
+        if (window.FileReader != null) {
+            $('#single').hide();
+            $('.single').prop('disabled', true);
+        } else {
+            $('#multiple').hide();
+            $('.multiple').prop('disabled', true);
+        }
+    });
+</script>
+
+<br />
+<div class="row">
+    <div class="ContentBlock">
+        <div class="row">
+            <h2>Project Edit Page</h2>
+
+            @using (Html.BeginForm("Edit", "Projects", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.Project.ID)
+                @Html.HiddenFor(model => model.Project.Priority)
+
+
+                <div class="row">
+                    <div class="text-left col-xs-6">
+                        <span style="padding-left: 15px">Public</span>
+                        @Html.EditorFor(model => model.Project.Shown)
+                    </div>
+                    <div class="text-right col-xs-6">
+                        @Html.ActionLink("To Project", "Get", new { ID = Model.Project.ID }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("Delete", "DeleteProject", new { ID = Model.Project.ID }, new { @class = "btn btn-danger" })
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <h3>Project Content</h3>
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <h4>Title</h4>
+                            @Html.EditorFor(model => model.Project.Title, new { htmlAttributes = new { @style = "width:100%;" } })
+                        </div>
+                        <div class="col-sm-4 col-sm-offset-4">
+                            <h4>Date</h4>
+                            @Html.EditorFor(model => model.Project.Date, new { htmlAttributes = new { @style = "width:100%;" } })
+                        </div>
+                    </div>
+                    <br/>
+                    <h4>Short Description</h4>
+                    @Html.TextAreaFor(model => model.Project.ShortContent, new { @style = "min-height:100px" })
+                    <br/>
+                    <h4>Full Description</h4>
+                    @Html.TextAreaFor(model => model.Project.ContentText, new { @style = "min-height:200px" })
+                    <br />
+                    <input type="submit" value="Save" class="btn btn-primary" />
+
+
+                </div>
+            }
+            <div class="col-md-4">
+                @if (Model.Project.ID > 0)
+                {
+                    <h3>Visual content management</h3>
+                                <div class="row">
+                                    <h4>Upload Visuals</h4>
+                                    @using (Html.BeginForm("UploadMultiple", "Projects", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.HiddenFor(model => model.Project.ID)
+                                        <div id="multiple">
+                                            <input type="file" class="multiple" name="files" multiple />
+                                        </div>
+                                        <div id="single">
+                                            <input type="file" class="single" name="files" /><br />
+                                            <input type="file" class="single" name="files" /><br />
+                                            <input type="file" class="single" name="files" /><br />
+                                        </div>
+                                        <br />
+                                        <button class="btn btn-success">Upload</button>
+                                    }
+                                    <br />
+                                    <br />
+                                    <h4>New Videos</h4>
+                                    @using (Html.BeginForm("NewVideo", "Projects", FormMethod.Post))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.HiddenFor(model => model.Project.ID)
+
+                                        @Html.TextBoxFor(model => model.PostVideo)
+
+                                        <br />
+                                        <button class="btn btn-success">Upload</button>
+                                    }
+
+                                </div>
+
+                                <br />
+                                <div class="row">
+
+                                    @using (Html.BeginForm("DeleteVisuals", "Projects", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.HiddenFor(model => model.Project.ID)
+                                        <h4>Delete Visuals</h4>
+                                        <div class="row">
+                                            @for (int i = 0; i < Model.Project.Visuals.Count; i++)
+                                            {
+                                                <div class="col-xs-6 ">
+                                                    <div class=" text-center VisualBlock">
+
+                                                        @Html.HiddenFor(model => model.Project.Visuals[i].ID)
+                                                        @Html.HiddenFor(model => model.Project.Visuals[i].Location)
+                                                        @Html.CheckBoxFor(model => model.Project.Visuals[i].Selected)
+                                                        <br />
+                                                        @if (Model.Project.Visuals[i].ContentType == Visual.ContentTypes.Photo)
+                                                        {
+                                                            <img src="/uploads/@Model.Project.Visuals[i].Location" />
+                                                        }
+                                                        else if(Model.Project.Visuals[i].ContentType == Visual.ContentTypes.Video)
+                                                        {
+                                                            <img src="//img.youtube.com/vi/@Model.Project.Visuals[i].Location/default.jpg" />
+                                                        }
+                                                        else if (Model.Project.Visuals[i].ContentType == Visual.ContentTypes.GfyCat)
+                                                        {
+                                                            <img src="https://thumbs.gfycat.com/@(Model.Project.Visuals[i].Location)-size_restricted.gif"/>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            }
+                                        </div>
+                                        <br />
+                                        <button class="btn btn-danger">Delete</button>
+                                    }
+                                </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

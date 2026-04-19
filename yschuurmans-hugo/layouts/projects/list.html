@@ -1,0 +1,33 @@
+{{ define "title" }}Projects - Youri Schuurmans{{ end }}
+
+{{ define "main" }}
+<section class="projects-section">
+  <h2 class="projects-heading">Projects</h2>
+
+  <div class="row g-4">
+    {{ range where (.Pages.ByParam "priority").Reverse "Params.shown" true }}
+      {{ $page := . }}
+      <div class="col-md-6 col-lg-4">
+        <a class="project-card" href="{{ .RelPermalink }}">
+          <div class="project-card-image">
+            {{ $img := "" }}
+            {{ with .Params.headerImg }}{{ $img = $page.Resources.GetMatch . }}{{ end }}
+            {{ if $img }}
+              <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
+            {{ else }}
+              <div class="project-card-image-placeholder">
+                <i class="fa fa-picture-o" aria-hidden="true"></i>
+              </div>
+            {{ end }}
+          </div>
+          <div class="project-card-body">
+            <p class="project-card-date">{{ .Params.displayDate }}</p>
+            <h3 class="project-card-title">{{ .Title }}</h3>
+            <p class="project-card-short">{{ .Params.shortContent }}</p>
+          </div>
+        </a>
+      </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

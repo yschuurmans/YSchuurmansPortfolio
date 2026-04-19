@@ -55,6 +55,8 @@ params:
   skills:
     - name: ".NET / C#"
       percent: 90
+    - name: "AI Agentic Engineering"
+      percent: 90
     - name: "Microsoft Azure"
       percent: 80
     - name: "Domain-Driven Design"

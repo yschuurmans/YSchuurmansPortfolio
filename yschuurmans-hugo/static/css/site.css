@@ -13,7 +13,7 @@
 
 body {
   font-family: 'Roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
-  padding-top: 64px;
+  padding-top: 56px;
   padding-bottom: 20px;
   background-color: var(--cv-bg);
   color: #1a1a1a;
@@ -36,19 +36,20 @@ h4 { color: var(--cv-blue-4); }
 
 /* #region Navbar */
 #navbarddiv {
-  background-color: var(--cv-navbar);
-  border-bottom: 1px solid rgba(0, 41, 102, 0.12);
+  background-color: var(--cv-blue-2);
+  border-bottom: 0;
+  box-shadow: none;
   font-size: 15px;
   min-height: 56px;
 }
 
 #navbarddiv .navbar-brand {
-  color: #333;
+  color: rgba(255, 255, 255, 0.95);
   font-weight: 500;
 }
 
 #navbarddiv .nav-link {
-  color: #4f4f4f;
+  color: rgba(255, 255, 255, 0.78);
   padding: 0.5rem 1rem;
   border-radius: 4px;
   transition: background-color 0.15s ease, color 0.15s ease;
@@ -56,29 +57,29 @@ h4 { color: var(--cv-blue-4); }
 
 #navbarddiv .nav-link:hover,
 #navbarddiv .nav-link:focus {
-  color: #333;
-  background-color: #def2ff;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.12);
 }
 
 #navbarddiv .nav-link.active {
-  color: #003d99;
-  background-color: #f0f9ff;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.18);
   font-weight: 500;
 }
 
 #navbarddiv .navbar-toggler {
-  border-color: #5ca1d6;
-  color: #5ca1d6;
+  border-color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.85);
 }
 /* #endregion */
 
 /* #region CV Hero */
 .cv-hero {
-  background: linear-gradient(135deg, #003d99 0%, #0047b3 100%);
+  background: linear-gradient(180deg, var(--cv-blue-2) 0%, var(--cv-blue-2) 28%, var(--cv-blue-1) 100%);
   color: #fff;
-  padding: 3.5rem 1rem 3rem;
+  padding: 3rem 1rem 3rem;
   margin-bottom: 2rem;
-  box-shadow: 0 2px 8px rgba(0, 41, 102, 0.15);
+  box-shadow: 0 14px 28px rgba(0, 41, 102, 0.14);
 }
 
 .cv-hero-inner {
@@ -113,6 +114,20 @@ h4 { color: var(--cv-blue-4); }
   margin: 0;
 }
 
+.cv-hero--compact {
+  padding: 1.75rem 1rem 1.65rem;
+  margin-bottom: 1.5rem;
+}
+
+.cv-hero-text--compact {
+  text-align: center;
+}
+
+.cv-hero-text--compact h1 {
+  margin: 0;
+  font-size: 2.2rem;
+}
+
 @media (min-width: 768px) {
   .cv-hero-inner {
     flex-direction: row;
@@ -121,6 +136,10 @@ h4 { color: var(--cv-blue-4); }
   }
   .cv-hero-text h1 {
     font-size: 3rem;
+  }
+
+  .cv-hero-text--compact h1 {
+    font-size: 2.45rem;
   }
 }
 /* #endregion */
@@ -331,14 +350,15 @@ h4 { color: var(--cv-blue-4); }
 /* #endregion */
 
 @media (max-width: 767.98px) {
-  .cv-hero { padding: 2.5rem 1rem 2rem; }
+  .cv-hero { padding: 2rem 1rem 2rem; }
+  .cv-hero--compact { padding: 1.5rem 1rem 1.35rem; }
   .cv-hero-photo { width: 130px; height: 130px; }
   .cv-card { padding: 1.25rem; }
 }
 
 /* #region Project list */
 .projects-section {
-  padding-top: 1.5rem;
+  padding-top: 0.25rem;
 }
 
 .projects-heading {

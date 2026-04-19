@@ -1,9 +1,21 @@
 {{ define "title" }}Projects - Youri Schuurmans{{ end }}
 
+{{ define "hero" }}
+<header class="cv-hero">
+  <div class="container">
+    <div class="cv-hero-inner">
+      <img src="/images/foto.jpg" class="cv-hero-photo" alt="Youri Schuurmans">
+      <div class="cv-hero-text">
+        <p class="cv-hero-tagline">Youri Schuurmans</p>
+        <h1>Projects</h1>
+      </div>
+    </div>
+  </div>
+</header>
+{{ end }}
+
 {{ define "main" }}
 <section class="projects-section">
-  <h2 class="projects-heading">Projects</h2>
-
   <div class="row g-4">
     {{ range where (.Pages.ByParam "priority").Reverse "Params.shown" true }}
       {{ $page := . }}

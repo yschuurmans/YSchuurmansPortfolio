@@ -1,6 +1,6 @@
 # Youri Schuurmans
 
-Visit the live website at [yschuurmans.nl](https://www.yschuurmans.nl).
+Visit the live website at [yschuurmans.nl](https://yschuurmans.nl).
 
 I am a software engineering consultant, currently working at Movir via Info Support on maintainable software platforms, phased legacy migrations, and improvements in testing, automation, reliability, observability, and security.
 

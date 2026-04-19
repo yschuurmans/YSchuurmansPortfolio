@@ -78,7 +78,7 @@ Then proxy `yschuurmans.nl` → `localhost:28080` in your reverse proxy config.
 ```
 yschuurmans-hugo/
 ├── hugo.toml                    # Site config
-├── content/_index.md            # CV data (front matter, served at /)
+├── content/_index.md            # CV data for the home page
 ├── layouts/
 │   ├── index.html               # Home page template (CV)
 │   └── _default/

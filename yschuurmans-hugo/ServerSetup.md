@@ -30,15 +30,17 @@ Use a dedicated deployment clone and keep it separate from any interactive devel
 
 Recommended paths:
 
-1. Repository clone: `C:\Deploy\YSchuurmansPortfolio`
+1. Repository clone: `C:\docker\YSchuurmansPortfolio`
 2. State files: `C:\ProgramData\YSchuurmansPortfolio\state`
 3. Logs: `C:\ProgramData\YSchuurmansPortfolio\logs`
 
-The repository clone should contain this project at `C:\Deploy\YSchuurmansPortfolio\yschuurmans-hugo`.
+The repository clone should contain this project at `C:\docker\YSchuurmansPortfolio\yschuurmans-hugo`.
 
 ## Service Account
 
 Create a dedicated low-privilege Windows account for automated deployment, for example `svc_portfolio_deploy`.
+
+If this is a local machine account rather than an Active Directory account, refer to it as either `.<backslash>svc_portfolio_deploy` in commands or `<SERVERNAME><backslash>svc_portfolio_deploy`.
 
 Grant this account only the access it needs:
 
@@ -61,8 +63,8 @@ docker compose version
 Clone the repository once on the server:
 
 ```powershell
-New-Item -ItemType Directory -Force -Path C:\Deploy | Out-Null
-Set-Location C:\Deploy
+New-Item -ItemType Directory -Force -Path C:\docker | Out-Null
+Set-Location C:\docker
 git clone <your-repository-url> YSchuurmansPortfolio
 ```
 
@@ -71,7 +73,7 @@ If the repository is private, configure Git authentication for this clone before
 Then verify the compose-based production deployment works manually:
 
 ```powershell
-Set-Location C:\Deploy\YSchuurmansPortfolio\yschuurmans-hugo
+Set-Location C:\docker\YSchuurmansPortfolio\yschuurmans-hugo
 docker compose up -d --build prod
 ```
 
@@ -108,7 +110,7 @@ The script uses `git reset --hard origin/main`. That is intentional and safe onl
 Run the polling script manually once before registering the scheduled task:
 
 ```powershell
-Set-Location C:\Deploy\YSchuurmansPortfolio\yschuurmans-hugo
+Set-Location C:\docker\YSchuurmansPortfolio\yschuurmans-hugo
 .\deployment\windows\poll-and-deploy.ps1
 ```
 
@@ -119,11 +121,14 @@ Review the logs in `C:\ProgramData\YSchuurmansPortfolio\logs`.
 You can register the scheduled task with the helper script:
 
 ```powershell
-Set-Location C:\Deploy\YSchuurmansPortfolio\yschuurmans-hugo
-.\deployment\windows\register-polling-task.ps1 -UserName 'DOMAIN\svc_portfolio_deploy' -Password '<service-account-password>' -IntervalMinutes 5
+Set-Location C:\docker\YSchuurmansPortfolio\yschuurmans-hugo
+$credential = Get-Credential '.\svc_portfolio_deploy'
+.\deployment\windows\register-polling-task.ps1 -Credential $credential -IntervalMinutes 5
 ```
 
 This creates a task that runs every 5 minutes and executes the polling script with PowerShell.
+
+If you are using an Active Directory account instead of a local machine account, replace the username with the real domain-qualified identity, for example `YOURDOMAIN\svc_portfolio_deploy`.
 
 If you prefer to create the task manually, use these settings:
 
@@ -131,7 +136,7 @@ If you prefer to create the task manually, use these settings:
 2. Use the dedicated deployment service account.
 3. Run with the lowest privileges that still allow Docker to work.
 4. Repeat task every 5 minutes indefinitely.
-5. Start in `C:\Deploy\YSchuurmansPortfolio\yschuurmans-hugo`.
+5. Start in `C:\docker\YSchuurmansPortfolio\yschuurmans-hugo`.
 
 ## Logging
 
@@ -155,7 +160,7 @@ Rollback uses the same deployment path, but with an explicit target commit.
 Example:
 
 ```powershell
-Set-Location C:\Deploy\YSchuurmansPortfolio\yschuurmans-hugo
+Set-Location C:\docker\YSchuurmansPortfolio\yschuurmans-hugo
 .\deployment\windows\rollback.ps1 -CommitSha <known-good-commit>
 ```
 

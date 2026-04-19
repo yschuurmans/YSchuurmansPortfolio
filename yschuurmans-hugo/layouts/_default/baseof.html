@@ -26,15 +26,7 @@
 
   <script>
     (function () {
-      var root = document.documentElement;
-      var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      var supportsViewTransitions = 'startViewTransition' in document ||
-        (window.CSS && typeof window.CSS.supports === 'function' && CSS.supports('view-transition-name: page-shell'));
-
-      root.classList.add('js');
-      if (!prefersReducedMotion && !supportsViewTransitions) {
-        root.classList.add('is-entering');
-      }
+      document.documentElement.classList.add('js');
     })();
   </script>
 

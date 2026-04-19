@@ -1,7 +1,9 @@
 [CmdletBinding()]
 param(
-    [Parameter(Mandatory = $true)]
+    [Parameter(Mandatory = $true, ParameterSetName = "Credential")]
     [PSCredential]$Credential,
+    [Parameter(Mandatory = $true, ParameterSetName = "CurrentUser")]
+    [switch]$CurrentUser,
     [int]$IntervalMinutes = 5,
     [string]$TaskName = "YSchuurmans Portfolio Polling Deploy",
     [string]$WorkingDirectory,
@@ -65,8 +67,14 @@ if (-not $WorkingDirectory) {
     $WorkingDirectory = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "..\.."))
 }
 
-$userName = $Credential.UserName
-$password = $Credential.Password
+if ($PSCmdlet.ParameterSetName -eq "CurrentUser") {
+    $userName = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
+    $password = $null
+}
+else {
+    $userName = $Credential.UserName
+    $password = $Credential.Password
+}
 
 $resolvedUserName = Resolve-TaskUserName -Name $userName
 
@@ -85,7 +93,6 @@ If you intended to use a local service account, make sure it already exists on t
 
 $scriptPath = Join-Path $PSScriptRoot "poll-and-deploy.ps1"
 $taskCommand = "cmd /c cd /d `"$WorkingDirectory`" && `"$PowerShellPath`" -NoProfile -ExecutionPolicy Bypass -File `"$scriptPath`""
-$plainTextPassword = ConvertTo-PlainText -Value $password
 
 $arguments = @(
     "/Create"
@@ -94,9 +101,16 @@ $arguments = @(
     "/SC", "MINUTE"
     "/MO", $IntervalMinutes
     "/RU", $resolvedUserName
-    "/RP", $plainTextPassword
     "/F"
 )
+
+if ($PSCmdlet.ParameterSetName -eq "CurrentUser") {
+    $arguments += "/IT"
+}
+else {
+    $plainTextPassword = ConvertTo-PlainText -Value $password
+    $arguments += @("/RP", $plainTextPassword)
+}
 
 & schtasks.exe @arguments
 

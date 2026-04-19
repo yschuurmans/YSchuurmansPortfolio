@@ -120,7 +120,22 @@ Review the logs in `C:\ProgramData\YSchuurmansPortfolio\logs`.
 
 ## Register the Scheduled Task
 
-You can register the scheduled task with the helper script:
+You can register the scheduled task with the helper script.
+
+### Option A: run it as the current Windows user
+
+If you are running PowerShell as an administrator and you are happy for the task to run as your current Windows account, use this simpler path:
+
+```powershell
+Set-Location C:\docker\YSchuurmansPortfolio\yschuurmans-hugo
+.\deployment\windows\register-polling-task.ps1 -CurrentUser -IntervalMinutes 5
+```
+
+This is the easiest setup, but it has an important tradeoff: the task is registered as an interactive task for the current user, so it is best suited to scenarios where that user context is expected to remain available.
+
+### Option B: run it as a dedicated service account
+
+If you want the polling task to run under a dedicated deployment account independent of your own login session, use a credential:
 
 ```powershell
 Set-Location C:\docker\YSchuurmansPortfolio\yschuurmans-hugo
@@ -128,7 +143,7 @@ $credential = Get-Credential '.\svc_portfolio_deploy'
 .\deployment\windows\register-polling-task.ps1 -Credential $credential -IntervalMinutes 5
 ```
 
-This creates a task that runs every 5 minutes and executes the polling script with PowerShell.
+Both options create a task that runs every 5 minutes and executes the polling script with PowerShell.
 
 If you are using an Active Directory account instead of a local machine account, replace the username with the real domain-qualified identity, for example `YOURDOMAIN\svc_portfolio_deploy`.
 

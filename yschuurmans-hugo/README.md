@@ -20,7 +20,7 @@ Open [http://localhost:1313/](http://localhost:1313/). The project directory is 
 ## Production build & serve
 
 ```bash
-docker compose up prod
+docker compose up yschuurmans-hugo-prod
 ```
 
 This builds the multi-stage Dockerfile (Hugo extended → nginx:alpine) and serves the minified site at [http://localhost:28080](http://localhost:28080).
@@ -50,7 +50,7 @@ docker run -d --restart unless-stopped -p 28080:80 yschuurmans-hugo:latest
 Or with Docker Compose on the server:
 
 ```bash
-docker compose up -d prod
+docker compose up -d yschuurmans-hugo-prod
 ```
 
 The container serves the pre-built static site via nginx on container port 80 and is exposed on host port 28080 by default. No Hugo runtime is included in the final image — only the compiled output and nginx.

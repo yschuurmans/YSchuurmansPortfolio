@@ -57,4 +57,4 @@ return DB.MainDB.InsertQuery("INSERT INTO ACCOUNT(USERNAME, PASSWORD, SALT) VALU
 
 GitHub Repository:
 
-[https://github.com/yschuurmans/YSchuurmansPortfolio/](https://github.com/yschuurmans/YSchuurmansPortfolio/)
+[https://github.com/yschuurmans/YSchuurmansPortfolio/tree/old-portfolio](https://github.com/yschuurmans/YSchuurmansPortfolio/tree/old-portfolio)

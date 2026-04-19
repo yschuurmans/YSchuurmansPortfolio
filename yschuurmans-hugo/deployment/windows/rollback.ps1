@@ -60,8 +60,23 @@ function Write-BuildMetadata {
     Write-Log "Wrote build metadata version $versionNumber for $commitDate."
 }
 
+function Reset-ProdContainer {
+    $existingContainerId = (& $dockerExe compose @composeOptions ps -a -q $prodServiceName).Trim()
+
+    if (-not $existingContainerId) {
+        Write-Log "No existing $prodServiceName container found."
+        return
+    }
+
+    Write-Log "Stopping and removing existing $prodServiceName container $existingContainerId."
+    & $dockerExe compose @composeOptions rm -f -s $prodServiceName | Out-Null
+}
+
 $gitExe = Get-CommandPath -Name "git"
 $dockerExe = Get-CommandPath -Name "docker"
+$composeFilePath = Join-Path $SiteRoot "docker-compose.yml"
+$composeOptions = @("--project-directory", $SiteRoot, "--file", $composeFilePath)
+$prodServiceName = "yschuurmans-hugo-prod"
 
 $lockStream = $null
 
@@ -88,8 +103,10 @@ try {
 
     Write-BuildMetadata -CommitSha $CommitSha
 
-    Write-Log "Running docker compose up -d --build prod for rollback."
-    & $dockerExe compose up -d --build prod
+    Reset-ProdContainer
+
+    Write-Log "Running docker compose up -d --build $prodServiceName for rollback."
+    & $dockerExe compose @composeOptions up -d --build $prodServiceName
 
     Set-Content -Path $deployedShaPath -Value $CommitSha
     Write-Log "Rollback completed successfully at $CommitSha."

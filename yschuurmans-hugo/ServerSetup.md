@@ -11,7 +11,7 @@ The server polls GitHub every few minutes, checks whether `origin/main` moved fo
 3. If `HEAD` already matches `origin/main`, the script logs `no change` and exits.
 4. If `origin/main` is newer, the script acquires a deployment lock.
 5. The script resets the deployment clone to `origin/main`.
-6. The script runs `docker compose up -d --build prod` from the Hugo project directory.
+6. The script runs `docker compose up -d --build yschuurmans-hugo-prod` from the Hugo project directory.
 7. On success, the script records the deployed commit SHA and exits.
 
 ## Prerequisites
@@ -74,7 +74,7 @@ Then verify the compose-based production deployment works manually:
 
 ```powershell
 Set-Location C:\docker\YSchuurmansPortfolio\yschuurmans-hugo
-docker compose up -d --build prod
+docker compose up -d --build yschuurmans-hugo-prod
 ```
 
 Do not automate anything until this manual deployment succeeds.
@@ -102,8 +102,9 @@ All scripts assume they are run from within the checked-out repository and deriv
 5. Compares local `HEAD` with `origin/main`.
 6. If unchanged, writes a log entry and exits.
 7. If changed, resets the deployment clone to `origin/main`.
-8. Runs `docker compose up -d --build prod`.
-9. Writes the deployed commit SHA to a state file.
+8. Stops and removes the existing `yschuurmans-hugo-prod` container, if present.
+9. Runs `docker compose up -d --build yschuurmans-hugo-prod`.
+10. Writes the deployed commit SHA to a state file.
 
 The script uses `git reset --hard origin/main`. That is intentional and safe only because this should be a dedicated deployment clone.
 
@@ -186,7 +187,7 @@ That script:
 1. Acquires the same deployment lock.
 2. Fetches from origin.
 3. Resets the deployment clone to the requested commit SHA.
-4. Runs `docker compose up -d --build prod`.
+4. Runs `docker compose up -d --build yschuurmans-hugo-prod`.
 5. Updates `deployed-sha.txt`.
 
 ## Verification Checklist

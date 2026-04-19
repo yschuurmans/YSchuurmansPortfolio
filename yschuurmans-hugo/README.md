@@ -61,6 +61,8 @@ For a Windows-native server setup that polls GitHub for updates and redeploys wi
 
 Starter automation scripts are provided in `deployment/windows/`.
 
+Those deployment and rollback scripts generate `data/build.toml` before building so the footer shows the deployed short commit hash as `v (abcdef0)`. Local development falls back to `v (dev)` when that generated file is absent.
+
 ### Behind a reverse proxy (recommended)
 
 If you run IIS, nginx, or Caddy in front of this container, proxy to the container on host port 28080:

@@ -25,6 +25,7 @@ $null = New-Item -ItemType Directory -Force -Path $LogDir
 $logPath = Join-Path $LogDir "rollback.log"
 $lockPath = Join-Path $StateDir "deploy.lock"
 $deployedShaPath = Join-Path $StateDir "deployed-sha.txt"
+$buildDataPath = Join-Path $SiteRoot "data\build.toml"
 
 function Write-Log {
     param([string]$Message)
@@ -40,6 +41,22 @@ function Get-CommandPath {
 
     $command = Get-Command $Name -ErrorAction Stop
     return $command.Source
+}
+
+function Write-BuildMetadata {
+    param([string]$CommitSha)
+
+    $shortShaLength = [Math]::Min(7, $CommitSha.Length)
+    $shortSha = $CommitSha.Substring(0, $shortShaLength)
+    $buildDataDir = Split-Path -Parent $buildDataPath
+    $buildData = @(
+        "version = `"$shortSha`""
+        "commit = `"$CommitSha`""
+    )
+
+    $null = New-Item -ItemType Directory -Force -Path $buildDataDir
+    Set-Content -Path $buildDataPath -Value $buildData
+    Write-Log "Wrote build metadata for $shortSha."
 }
 
 $gitExe = Get-CommandPath -Name "git"
@@ -67,6 +84,8 @@ try {
 
     Pop-Location
     Push-Location $SiteRoot
+
+    Write-BuildMetadata -CommitSha $CommitSha
 
     Write-Log "Running docker compose up -d --build prod for rollback."
     & $dockerExe compose up -d --build prod

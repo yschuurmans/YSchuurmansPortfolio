@@ -56,7 +56,7 @@
   <footer class="text-end pageFooter mt-4">
     <p>
       &copy; {{ now.Year }} - Youri Schuurmans<br>
-      v 2.0.1
+      {{ with site.Data.build.version }}v ({{ . }}){{ else }}v (dev){{ end }}
     </p>
   </footer>
 </div>

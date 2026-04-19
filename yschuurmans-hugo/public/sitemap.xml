@@ -14,6 +14,8 @@
   </url><url>
     <loc>http://localhost:1313/projects/dim-at-blewscreen/</loc>
   </url><url>
+    <loc>http://localhost:1313/projects/movir/</loc>
+  </url><url>
     <loc>http://localhost:1313/projects/myo-god-game/</loc>
   </url><url>
     <loc>http://localhost:1313/projects/first-portfolio-website/</loc>
@@ -23,5 +25,7 @@
     <loc>http://localhost:1313/projects/procedural-world-generation/</loc>
   </url><url>
     <loc>http://localhost:1313/projects/</loc>
+  </url><url>
+    <loc>http://localhost:1313/projects/zilveren-kruis/</loc>
   </url>
 </urlset>

@@ -61,7 +61,7 @@ For a Windows-native server setup that polls GitHub for updates and redeploys wi
 
 Starter automation scripts are provided in `deployment/windows/`.
 
-Those deployment and rollback scripts generate `data/build.toml` before building so the footer shows a deployment version such as `v 123 (2026-04-19)`, based on the deployed commit count and commit date. Local development falls back to `v dev` when that generated file is absent.
+Those deployment and rollback scripts generate `data/build.toml` before building so the footer shows a deployment version such as `v 123 (2026-04-19)`, based on the deployed commit count and commit date. Local development falls back to `v dev` when that generated file is absent. The shared site stylesheet is emitted through Hugo's asset pipeline with a content fingerprint, so each CSS change gets a new build URL and invalidates stale browser caches automatically.
 
 ### Behind a reverse proxy (recommended)
 
@@ -83,8 +83,9 @@ yschuurmans-hugo/
 │   ├── index.html               # Home page template (CV)
 │   └── _default/
 │       └── baseof.html          # Shared shell (navbar, footer, CDN links)
+├── assets/
+│   └── css/site.css             # Custom styles (fingerprinted on build)
 └── static/
-    ├── css/site.css             # Custom styles
     ├── js/main.js               # JS (hover zoom)
     └── images/foto.jpg          # Profile photo
 ```

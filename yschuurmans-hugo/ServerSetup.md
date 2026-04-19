@@ -11,8 +11,9 @@ The server polls GitHub every few minutes, checks whether `origin/main` moved fo
 3. If `HEAD` already matches `origin/main`, the script logs `no change` and exits.
 4. If `origin/main` is newer, the script acquires a deployment lock.
 5. The script resets the deployment clone to `origin/main`.
-6. The script runs `docker compose up -d --build yschuurmans-hugo-prod` from the Hugo project directory.
-7. On success, the script records the deployed commit SHA and exits.
+6. The script deletes the existing `public/` output directory so stale generated files cannot survive into the next deployment.
+7. The script runs `docker compose up -d --build yschuurmans-hugo-prod` from the Hugo project directory.
+8. On success, the script records the deployed commit SHA and exits.
 
 ## Prerequisites
 
@@ -102,9 +103,10 @@ All scripts assume they are run from within the checked-out repository and deriv
 5. Compares local `HEAD` with `origin/main`.
 6. If unchanged, writes a log entry and exits.
 7. If changed, resets the deployment clone to `origin/main`.
-8. Stops and removes the existing `yschuurmans-hugo-prod` container, if present.
-9. Runs `docker compose up -d --build yschuurmans-hugo-prod`.
-10. Writes the deployed commit SHA to a state file.
+8. Deletes the existing `public/` directory, if present.
+9. Stops and removes the existing `yschuurmans-hugo-prod` container, if present.
+10. Runs `docker compose up -d --build yschuurmans-hugo-prod`.
+11. Writes the deployed commit SHA to a state file.
 
 The script uses `git reset --hard origin/main`. That is intentional and safe only because this should be a dedicated deployment clone.
 

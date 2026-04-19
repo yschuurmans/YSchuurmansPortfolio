@@ -24,6 +24,7 @@ $logPath = Join-Path $LogDir "poll-and-deploy.log"
 $lockPath = Join-Path $StateDir "deploy.lock"
 $deployedShaPath = Join-Path $StateDir "deployed-sha.txt"
 $buildDataPath = Join-Path $SiteRoot "data\build.toml"
+$publicDirPath = Join-Path $SiteRoot "public"
 
 function Write-Log {
     param([string]$Message)
@@ -56,6 +57,16 @@ function Write-BuildMetadata {
     $null = New-Item -ItemType Directory -Force -Path $buildDataDir
     Set-Content -Path $buildDataPath -Value $buildData
     Write-Log "Wrote build metadata version $versionNumber for $commitDate."
+}
+
+function Reset-PublicDirectory {
+    if (-not (Test-Path -Path $publicDirPath)) {
+        Write-Log "No existing public directory found at $publicDirPath."
+        return
+    }
+
+    Write-Log "Removing existing public directory at $publicDirPath."
+    Remove-Item -Path $publicDirPath -Recurse -Force
 }
 
 function Reset-ProdContainer {
@@ -109,6 +120,7 @@ try {
     Push-Location $SiteRoot
 
     Write-BuildMetadata -CommitSha $remoteSha
+    Reset-PublicDirectory
 
     Reset-ProdContainer
 

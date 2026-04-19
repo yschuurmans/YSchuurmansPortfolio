@@ -4,7 +4,11 @@ displayDate: "Q1 2026"
 shortContent: "A ground-up rebuild of my original portfolio into a modern, container-friendly Hugo site, guided and accelerated through AI agentic engineering."
 priority: 12
 shown: true
-headerImg: "screenshotAbout.png"
+headerImg: "About.png"
+visuals:
+  - 'About.png'
+  - 'Projects.png'
+  - 'visuals.mp4'
 
 ---
 

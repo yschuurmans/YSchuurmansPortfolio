@@ -46,17 +46,18 @@ function Get-CommandPath {
 function Write-BuildMetadata {
     param([string]$CommitSha)
 
-    $shortShaLength = [Math]::Min(7, $CommitSha.Length)
-    $shortSha = $CommitSha.Substring(0, $shortShaLength)
+    $versionNumber = (& $gitExe rev-list --count $CommitSha).Trim()
+    $commitDate = (& $gitExe show -s --format=%cs $CommitSha).Trim()
     $buildDataDir = Split-Path -Parent $buildDataPath
     $buildData = @(
-        "version = `"$shortSha`""
+        "version = `"$versionNumber`""
+        "date = `"$commitDate`""
         "commit = `"$CommitSha`""
     )
 
     $null = New-Item -ItemType Directory -Force -Path $buildDataDir
     Set-Content -Path $buildDataPath -Value $buildData
-    Write-Log "Wrote build metadata for $shortSha."
+    Write-Log "Wrote build metadata version $versionNumber for $commitDate."
 }
 
 $gitExe = Get-CommandPath -Name "git"

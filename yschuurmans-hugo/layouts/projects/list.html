@@ -1,5 +1,30 @@
 {{ define "title" }}Projects - Youri Schuurmans{{ end }}
 
+{{ define "head" }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Projects",
+  "url": "{{ .Permalink }}",
+  "description": "{{ .Description | default "Portfolio projects by Youri Schuurmans, covering consulting, .NET, Azure, data, and interactive software." }}",
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {{ range $index, $page := where (.Pages.ByParam "priority").Reverse "Params.shown" true }}{{ if $index }},{{ end }}
+      {
+        "@type": "ListItem",
+        "position": {{ add $index 1 }},
+        "url": "{{ $page.Permalink }}",
+        "name": "{{ $page.Title }}"
+      }
+      {{ end }}
+    ]
+  }
+}
+</script>
+{{ end }}
+
 {{ define "hero" }}
 <header class="cv-hero">
   <div class="container">

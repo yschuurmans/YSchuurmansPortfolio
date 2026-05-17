@@ -12,6 +12,31 @@
 </header>
 {{ end }}
 
+{{ define "head" }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ .Params.contact.name }}",
+  "url": "{{ .Permalink }}",
+  "image": "{{ "/images/foto.jpg" | absURL }}",
+  "jobTitle": "{{ .Params.headline | default "Software Engineering Consultant" }}",
+  "sameAs": [
+    "{{ .Params.contact.website }}",
+    "{{ .Params.contact.github }}",
+    "{{ .Params.contact.linkedin }}"
+  ],
+  "knowsAbout": [
+    {{ range $index, $skill := .Params.skills }}{{ if $index }}, {{ end }}"{{ $skill.name }}"{{ end }}
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Info Support"
+  }
+}
+</script>
+{{ end }}
+
 {{ define "main" }}
 <div class="row g-4 cv-grid">
 
@@ -23,7 +48,7 @@
         <li>{{ .Params.contact.name }}</li>
         <li>
           <i class="fa fa-envelope" aria-hidden="true"></i>
-          <!--email_off--><a href="mailto:{{ .Params.contact.email }}">{{ .Params.contact.email }}</a><!--/email_off-->
+          <a href="mailto:{{ .Params.contact.email }}">{{ .Params.contact.email }}</a>
         </li>
         <li>
           <i class="fa fa-globe" aria-hidden="true"></i>

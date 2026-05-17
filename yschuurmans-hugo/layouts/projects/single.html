@@ -1,5 +1,59 @@
 {{ define "title" }}{{ .Title }} - Youri Schuurmans{{ end }}
 
+{{ define "head" }}
+{{ $shareImage := absURL "/images/foto.jpg" }}
+{{ with .Params.headerImg }}
+  {{ with $.Resources.GetMatch . }}
+    {{ $shareImage = .Permalink }}
+  {{ end }}
+{{ end }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "{{ .Title }}",
+  "url": "{{ .Permalink }}",
+  "description": "{{ .Params.shortContent | plainify | htmlUnescape | strings.TrimSpace }}",
+  "image": "{{ $shareImage }}",
+  "author": {
+    "@type": "Person",
+    "name": "Youri Schuurmans"
+  },
+  "isPartOf": {
+    "@type": "CollectionPage",
+    "name": "Projects",
+    "url": "{{ "/projects/" | absURL }}"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "About",
+      "item": "{{ "/" | absURL }}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Projects",
+      "item": "{{ "/projects/" | absURL }}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ .Title }}",
+      "item": "{{ .Permalink }}"
+    }
+  ]
+}
+</script>
+{{ end }}
+
 {{ define "main" }}
 <article class="project-detail">
 

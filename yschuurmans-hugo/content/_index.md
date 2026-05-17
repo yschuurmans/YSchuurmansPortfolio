@@ -1,5 +1,6 @@
 ---
 title: "About"
+description: "Youri Schuurmans is a software engineering consultant specializing in .NET, Azure, security, automation, and modern software delivery."
 layout: "single"
 
 params:

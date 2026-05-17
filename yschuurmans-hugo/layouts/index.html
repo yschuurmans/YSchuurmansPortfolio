@@ -48,7 +48,7 @@
         <li>{{ .Params.contact.name }}</li>
         <li>
           <i class="fa fa-envelope" aria-hidden="true"></i>
-          <a href="mailto:{{ .Params.contact.email }}">{{ .Params.contact.email }}</a>
+          {{ partial "obfuscated-email.html" (dict "email" .Params.contact.email) }}
         </li>
         <li>
           <i class="fa fa-globe" aria-hidden="true"></i>

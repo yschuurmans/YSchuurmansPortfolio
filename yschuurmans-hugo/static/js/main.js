@@ -34,39 +34,32 @@
     if (collapse) collapse.hide();
   }
 
-  function refreshCloudflareEmailProtection() {
-    var protectedEmailSelector = 'a[href*="/cdn-cgi/l/email-protection"], .__cf_email__';
-    var existingRequest = window.__cfEmailDecodePromise;
+  function hydrateObfuscatedEmails() {
+    var emailKey = 'yschuurmans-email-key';
+    var keyBytes = new TextEncoder().encode(emailKey);
 
-    if (!document.querySelector(protectedEmailSelector)) {
-      return Promise.resolve();
-    }
+    document.querySelectorAll('a.obfuscated-email[data-cipher]').forEach(function (link) {
+      var cipher = link.getAttribute('data-cipher') || '';
 
-    if (existingRequest) {
-      return existingRequest;
-    }
-
-    window.__cfEmailDecodePromise = new Promise(function (resolve) {
-      var script = document.createElement('script');
-      var settled = false;
-
-      function finish() {
-        if (settled) return;
-        settled = true;
-        window.__cfEmailDecodePromise = null;
-        resolve();
+      if (!cipher) {
+        return;
       }
 
-      script.src = '/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js';
-      script.async = true;
-      script.onload = finish;
-      script.onerror = finish;
+      var cipherBytes = Uint8Array.from(window.atob(cipher), function (character) {
+        return character.charCodeAt(0);
+      });
+      var plainBytes = new Uint8Array(cipherBytes.length);
 
-      document.body.appendChild(script);
-      window.setTimeout(finish, 1500);
+      for (var index = 0; index < cipherBytes.length; index += 1) {
+        plainBytes[index] = cipherBytes[index] ^ keyBytes[index % keyBytes.length];
+      }
+
+      var email = new TextDecoder().decode(plainBytes);
+
+      link.href = 'mailto:' + email;
+      link.textContent = email;
+      link.setAttribute('aria-label', email);
     });
-
-    return window.__cfEmailDecodePromise;
   }
 
   function enhancePage() {
@@ -74,7 +67,7 @@
     initProjectHover();
     initProjectCarousel();
     initLightbox();
-    refreshCloudflareEmailProtection();
+    hydrateObfuscatedEmails();
   }
 
   function swapPageContent(nextDocument) {

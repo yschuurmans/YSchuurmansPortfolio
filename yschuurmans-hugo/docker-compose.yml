@@ -10,5 +10,6 @@ services:
 
   yschuurmans-hugo-prod:
     build: .
+    restart: unless-stopped 
     ports:
       - "28080:80"
